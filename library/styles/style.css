@@ -1,13 +1,33 @@
+:root {
+  /* Color palette */
+  --bpl-black-color: #000000;
+  --bpl-white-color: #FFFFFF;
+  --bpl-dark-color: #0C0C0E;
+  --bpl-gold-color: #BB945F;
+  --bpl-grey-color: #8E8E8E;
+
+  /* Fonts */
+  --bpl-inter-font: 'Inter', sans-serif;
+  --bpl-forum-font: 'Forum', cursive;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   display: flex;
   justify-content: center;
+  font-family: var(--bpl-inter-font);
 }
 
 .main-container {
   width: 1440px;
   display: flex;
   overflow: hidden;
-  background: #FFF;
+  background: var(--bpl-white-color);
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
