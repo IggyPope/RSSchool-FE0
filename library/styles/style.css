@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  width: 1440px;
+  display: flex;
+  overflow: hidden;
+  background: #FFF;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
