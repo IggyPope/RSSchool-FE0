@@ -149,8 +149,17 @@ main {
 
 .welcome__heading {
   display: inline-block;
-  text-transform: uppercase;
+  width: 600px;
+  padding: 35px 40px;
+  margin: 220px auto auto 0;
   color: var(--bpl-white-color);
+  text-align: center;
   font-family: var(--bpl-forum-font);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
   letter-spacing: 3px;
+  text-transform: uppercase;
+  background-color: var(--bpl-dark-color);
 }
