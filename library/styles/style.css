@@ -42,6 +42,10 @@ a {
   color: inherit;
 }
 
+p {
+  margin: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -106,7 +110,7 @@ main {
 }
 
 .header__nav-link {
-  color: #FFF;
+  color: var(--bpl-white-color);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -139,9 +143,29 @@ main {
   padding: 20px 20px 40px;
 }
 
+.section__heading {
+  margin: 0;
+  color: var(--bpl-dark-color);
+  font-family: var(--bpl-forum-font);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.section__heading::after {
+  display: block;
+  margin: 20px auto 0;
+  content: "";
+  width: 50px;
+  border-bottom: solid 1px var(--bpl-dark-color);
+}
+
 .welcome-section {
   height: 600px;
-  background-image: linear-gradient(180deg, var(--bpl-dark-color) 0%, var(--bpl-dark-color) 0.01%, rgba(18, 18, 21, 0.1) 50%), url(../images/welcome.jpg);
+  background-image: linear-gradient(180deg, var(--bpl-dark-color) 0%, var(--bpl-dark-color) 0.01%, rgba(18, 18, 21, 0.1) 50%), url(../images/pictures/welcome.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -162,4 +186,61 @@ main {
   letter-spacing: 3px;
   text-transform: uppercase;
   background-color: var(--bpl-dark-color);
+}
+
+.about-section__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-section__description {
+  color: var(--bpl-black-color);
+  text-align: center;
+  font-family: var(--bpl-inter-font);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.carousel__images {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.carousel__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__control-wrapper {
+  height: 26px;
+  width: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.carousel__control {
+  height: 16px;
+  width: 16px;
+  background-color: var(--bpl-dark-color);
+  border-radius: 50%;
+}
+
+.carousel__control_active {
+  background-color: var(--bpl-gold-color);
 }
