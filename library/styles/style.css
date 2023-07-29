@@ -391,6 +391,23 @@ main {
   transition-duration: 0.6s;
 }
 
+.book-card__btn-own {
+  width: 75px;
+  height: 30px;
+  background-color: var(--bpl-white-color);
+  border: 1px solid var(--bpl-gold-color);
+  border-radius: 2px;
+  color: var(--bpl-gold-color);
+  text-align: center;
+  font-family: var(--bpl-inter-font);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
 .book-card__cover {
   position: absolute;
   bottom: -1px;
