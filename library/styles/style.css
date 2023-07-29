@@ -160,7 +160,7 @@ main {
   margin: 20px auto 0;
   content: "";
   width: 50px;
-  border-bottom: solid 1px var(--bpl-dark-color);
+  border-bottom: 1px solid var(--bpl-dark-color);
 }
 
 .section__sub-heading {
@@ -175,7 +175,7 @@ main {
 
 .welcome-section {
   height: 600px;
-  background-image: linear-gradient(180deg, var(--bpl-dark-color) 0%, var(--bpl-dark-color) 0.01%, rgba(18, 18, 21, 0.1) 50%), url(../images/pictures/welcome.jpg);
+  background-image: linear-gradient(180deg, var(--bpl-dark-color) 0%, var(--bpl-dark-color) 0.01%, rgba(18, 18, 21, 0.1) 50%), url(../images/pictures/welcome/welcome.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -291,4 +291,108 @@ main {
 
 .favorites__radio-button input[type="radio"]:checked+label {
   font-weight: 700;
+}
+
+.favorites-content {
+  align-self: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 260px;
+  row-gap: 40px;
+}
+
+.book-card {
+  position: relative;
+  width: 550px;
+  height: 555px;
+  padding: 15px 20px;
+  border: 1px solid var(--bpl-black-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.book-card__text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.book-card__heading {
+  margin: 0;
+  color: var(--bpl-black-color);
+  font-family: var(--bpl-forum-font);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.book-card__heading::after {
+  display: block;
+  content: "";
+  width: 60px;
+  border-bottom: 1px solid var(--bpl-gold-color);
+}
+
+.book-card__title {
+  margin: 0;
+  font-family: var(--bpl-inter-font);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.book-card__title::first-line {
+  text-transform: uppercase;
+}
+
+.book-card__description {
+  width: 355px;
+  color: #000;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.book-card__btn-buy {
+  width: 75px;
+  height: 30px;
+  background-color: var(--bpl-white-color);
+  border: 1px solid var(--bpl-dark-color);
+  border-radius: 2px;
+  color: var(--bpl-dark-color);
+  text-align: center;
+  font-family: var(--bpl-inter-font);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+}
+
+.book-card__btn-buy:hover {
+  background-color: var(--bpl-gold-color);
+  border-color: var(--bpl-gold-color);
+  transition-duration: 0.6s;
+}
+
+.book-card__cover {
+  position: absolute;
+  bottom: -1px;
+  right: -40px;
 }
