@@ -413,3 +413,104 @@ main {
   bottom: -1px;
   right: -40px;
 }
+
+/* Coffee shop section */
+
+.coffee-section__description {
+  color: var(--bpl-black-color);
+  text-align: center;
+  font-family: var(--bpl-inter-font);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+}
+
+.coffee-section__menu {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu-section {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.menu-beverages {
+  align-items: flex-start;
+}
+
+.menu-desserts {
+  align-items: flex-end;
+}
+
+.menu-heading {
+  margin: 0;
+  color: var(--bpl-gold-color);
+  font-family: var(--bpl-forum-font);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.menu__items {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: inherit;
+  gap: 40px;
+}
+
+.menu-desserts__items {
+  align-items: flex-end;
+}
+
+.menu-beverages__item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+
+.menu-desserts__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 60px;
+}
+
+.menu__item-name {
+  color: var(--bpl-black-color);
+  font-family: var(--bpl-inter-font);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.menu__divider {
+  width: 100px;
+  height: 1px;
+  background-color: var(--bpl-gold-color);
+  border: none;
+}
+
+.menu-beverages__divider {
+  margin-left: auto;
+}
+
+.menu__item-price {}
