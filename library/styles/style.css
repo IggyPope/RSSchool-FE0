@@ -163,6 +163,16 @@ main {
   border-bottom: solid 1px var(--bpl-dark-color);
 }
 
+.section__sub-heading {
+  margin: 0;
+  align-self: flex-start;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+/* Welcome section */
+
 .welcome-section {
   height: 600px;
   background-image: linear-gradient(180deg, var(--bpl-dark-color) 0%, var(--bpl-dark-color) 0.01%, rgba(18, 18, 21, 0.1) 50%), url(../images/pictures/welcome.jpg);
@@ -187,6 +197,8 @@ main {
   text-transform: uppercase;
   background-color: var(--bpl-dark-color);
 }
+
+/* About section */
 
 .about-section__content {
   display: flex;
@@ -243,4 +255,40 @@ main {
 
 .carousel__control_active {
   background-color: var(--bpl-gold-color);
+}
+
+/* Favorites section */
+
+.favorites__seasons-form {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 90px;
+}
+
+.favorites__radio-button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.favorites__season-radio {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--bpl-black-color);
+  cursor: pointer;
+}
+
+.favorites__season-label {
+  padding-left: 20px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.favorites__radio-button input[type="radio"]:checked+label {
+  font-weight: 700;
 }
