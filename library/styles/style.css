@@ -108,6 +108,7 @@ main {
 .btn:disabled {
   border: 1px solid var(--bpl-gold-color);
   color: var(--bpl-gold-color);
+  cursor: default;
 }
 
 /* Sections common styles */
