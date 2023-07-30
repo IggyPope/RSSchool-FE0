@@ -294,12 +294,15 @@ main {
 
 .carousel__control-wrapper {
   margin: -5px 0;
-  height: 26px;
+  padding: 0;
   width: 26px;
+  height: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border: none;
+  background: none;
 }
 
 .carousel__control {
