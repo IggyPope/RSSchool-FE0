@@ -788,3 +788,8 @@ main {
 .footnote__github {
   text-align: end;
 }
+
+.footnote__link:hover {
+  color: var(--bpl-gold-color);
+  transition: 0.6s;
+}
