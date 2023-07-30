@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 menu:not(article menu),
 ol:not(article ol),
 ul:not(article ul) {
