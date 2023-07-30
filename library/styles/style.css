@@ -513,4 +513,13 @@ main {
   margin-left: auto;
 }
 
-.menu__item-price {}
+.menu__item-price {
+  color: var(--bpl-black-color);
+  font-family: var(--bpl-forum-font);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
