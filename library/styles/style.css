@@ -765,8 +765,23 @@ main {
 }
 
 .footer__footnote {
+  width: 100%;
   margin: 44px 0;
   font-size: 20px;
   line-height: 20px;
   letter-spacing: 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.footnote__year {
+  text-align: start;
+}
+
+.footnote__rss {
+  text-align: center;
+}
+
+.footnote__github {
+  text-align: end;
 }
