@@ -81,7 +81,7 @@
 
         <h2 class="section__heading">Favorites</h2>
 
-        <h3 class="section__sub-heading">Pick favorites season</h3>
+        <h3 class="favorites__sub-heading">Pick favorites season</h3>
 
         <form id="seasons-form" class="favorites__seasons-form">
           <div class="favorites__radio-button">
@@ -120,7 +120,7 @@
                 and a strong, complex protagonist. Not for the faint of heart.
               </p>
             </div>
-            <button class="book-card__btn-buy">Buy</button>
+            <button class="btn book-card__btn-buy">Buy</button>
             <img class="book-card__cover" src="./images/pictures/favorites/winter/book_1.png" alt="book cover">
           </div>
           <div class="book-card">
@@ -136,7 +136,7 @@
                 a beautiful witch.
               </p>
             </div>
-            <button class="book-card__btn-buy">Buy</button>
+            <button class="btn book-card__btn-buy">Buy</button>
             <img class="book-card__cover" src="./images/pictures/favorites/winter/book_2.png" alt="book cover">
           </div>
           <div class="book-card">
@@ -152,7 +152,7 @@
                 something of divine significance—an inspired introduction to Dante's main themes.
               </p>
             </div>
-            <button class="book-card__btn-buy">Buy</button>
+            <button class="btn book-card__btn-buy">Buy</button>
             <img class="book-card__cover" src="./images/pictures/favorites/winter/book_3.png" alt="book cover">
           </div>
           <div class="book-card">
@@ -167,7 +167,7 @@
                 have evolved and thrived as the modern world has changed around them.
               </p>
             </div>
-            <button class="book-card__btn-own" disabled>Own</button>
+            <button class="btn book-card__btn-buy" disabled>Own</button>
             <img class="book-card__cover" src="./images/pictures/favorites/winter/book_4.png" alt="book cover">
           </div>
         </div>
@@ -184,7 +184,7 @@
           desserts from bakery.
         </p>
 
-        <div class="coffee-section__menu">
+        <div class="section-container_flex-row">
           <div class="menu-section menu-beverages">
             <h3 class="menu-heading">Coffee &amp; Tea</h3>
 
@@ -274,32 +274,71 @@
       <section id="contacts" class="section contacts-section">
         <h2 class="section__heading">Our contacts</h2>
 
-        <div class="contacts-wrapper">
+        <div class="section-container_flex-row">
           <div class="contacts__info">
+
             <h3 class="contacts__sub-heading">For all library inquiries:</h3>
+
             <div class="contacts__info-section">
               <p class="contacts__info-line">
                 Please call <a href="tel:6177302370">(617) 730-2370</a>
               </p>
+
               <p class="contacts__info-line">
                 For TTY service, please call <a href="tel:6177302370">(617) 730-2370</a>
               </p>
+
               <p class="contacts__info-line">
                 Putterham library: <a href="tel:6177302385">(617) 730-2385</a>
               </p>
             </div>
+
             <div class="contacts__info-section">
               <h3 class="contacts__sub-heading">Senior staff</h3>
+
               <p class="contacts__info-line">
                 Library Director: <a href="mailto:AmandaHirst@gmail.com"><strong>Amanda Hirst</strong></a>
               </p>
             </div>
           </div>
+
           <img class="contacts-map" src="/library/images/pictures/contacts/map.png" alt="map"></img>
         </div>
       </section>
 
-      <section id="library-card" class="section library-card-section"></section>
+      <section id="library-card" class="section dlc-section">
+        <h2 class="section__heading">Digital library cards</h2>
+
+        <div class="section-container_flex-row">
+          <div class="dlc__form-container">
+            <h3 class="dlc__find-card-header">Find your Library card</h3>
+            <form class="dlc__find-card-form">
+              <fieldset class="dlc__find-card-fieldset">
+                <h4 class="dlc__form-header">Brooklyn Public Library</h4>
+                <div class="dlc__input-wrapper">
+                  <input class="dlc__field" type="text" name="reader-name" id="reader-name" placeholder="Reader's name">
+                  <input class="dlc__field" type="text" name="card-number" id="card-number" placeholder="Card number">
+                </div>
+              </fieldset>
+              <button class="btn dlc__btn-find-card" type="submit">Check the card</button>
+            </form>
+          </div>
+          <div class="dlc__get-card-container">
+            <h3 class="dlc__get-card-header">Get a reader card</h3>
+
+            <p class="dlc__get-card-text">
+              You will be able to see a reader card after<br>
+              logging into account or you can register a new<br>
+              account
+            </p>
+
+            <div class="dlc__auth-controls">
+              <button class="btn btn-auth" id="btn-signup" class="dlc__btn-get-card">Sign Up</button>
+              <button class="btn btn-auth" id="btn-login" class="dlc__btn-get-card">Log in</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </main>
 

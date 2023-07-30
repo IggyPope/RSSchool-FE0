@@ -46,6 +46,15 @@ p {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -67,6 +76,74 @@ main {
   align-items: center;
   overflow: hidden;
 }
+
+/* Buttons */
+
+.btn {
+  background-color: var(--bpl-white-color);
+  border: 1px solid var(--bpl-dark-color);
+  border-radius: 2px;
+  color: var(--bpl-dark-color);
+  text-align: center;
+  font-family: var(--bpl-inter-font);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition-duration: 0.6s;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: var(--bpl-gold-color);
+  border-color: var(--bpl-gold-color);
+  transition-duration: 0.6s;
+}
+
+.btn:disabled {
+  border: 1px solid var(--bpl-gold-color);
+  color: var(--bpl-gold-color);
+}
+
+/* Sections common styles */
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  padding: 20px 20px 40px;
+}
+
+.section-container_flex-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.section__heading {
+  color: var(--bpl-dark-color);
+  font-family: var(--bpl-forum-font);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.section__heading::after {
+  display: block;
+  margin: 20px auto 0;
+  content: "";
+  width: 50px;
+  border-bottom: 1px solid var(--bpl-dark-color);
+}
+
+/* Header */
 
 .header {
   width: 100vw;
@@ -132,43 +209,6 @@ main {
   width: 100%;
   background-color: var(--bpl-white-color);
   transition: width ease-in-out 0.6s;
-}
-
-.section {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 40px;
-  padding: 20px 20px 40px;
-}
-
-.section__heading {
-  margin: 0;
-  color: var(--bpl-dark-color);
-  font-family: var(--bpl-forum-font);
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 40px;
-  letter-spacing: 2px;
-  text-transform: capitalize;
-}
-
-.section__heading::after {
-  display: block;
-  margin: 20px auto 0;
-  content: "";
-  width: 50px;
-  border-bottom: 1px solid var(--bpl-dark-color);
-}
-
-.section__sub-heading {
-  margin: 0;
-  align-self: flex-start;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: normal;
 }
 
 /* Welcome section */
@@ -258,6 +298,13 @@ main {
 }
 
 /* Favorites section */
+
+.favorites__sub-heading {
+  align-self: flex-start;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+}
 
 .favorites__seasons-form {
   align-self: flex-start;
@@ -370,42 +417,6 @@ main {
 .book-card__btn-buy {
   width: 75px;
   height: 30px;
-  background-color: var(--bpl-white-color);
-  border: 1px solid var(--bpl-dark-color);
-  border-radius: 2px;
-  color: var(--bpl-dark-color);
-  text-align: center;
-  font-family: var(--bpl-inter-font);
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition-duration: 0.6s;
-}
-
-.book-card__btn-buy:hover {
-  background-color: var(--bpl-gold-color);
-  border-color: var(--bpl-gold-color);
-  transition-duration: 0.6s;
-}
-
-.book-card__btn-own {
-  width: 75px;
-  height: 30px;
-  background-color: var(--bpl-white-color);
-  border: 1px solid var(--bpl-gold-color);
-  border-radius: 2px;
-  color: var(--bpl-gold-color);
-  text-align: center;
-  font-family: var(--bpl-inter-font);
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1px;
-  cursor: pointer;
 }
 
 .book-card__cover {
@@ -425,13 +436,6 @@ main {
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
-}
-
-.coffee-section__menu {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }
 
 .menu-section {
@@ -526,14 +530,6 @@ main {
 
 /* Contacts section */
 
-.contacts-wrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
 .contacts__info {
   display: flex;
   flex-direction: column;
@@ -571,4 +567,123 @@ main {
   line-height: 40px;
   letter-spacing: 2px;
   text-transform: capitalize;
+}
+
+/* Digital library cards section */
+
+.dlc__form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.dlc__find-card-header {
+  margin: 0;
+  color: var(--bpl-black-color);
+  font-family: var(--bpl-inter-font);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+
+.dlc__find-card-form {
+  width: 600px;
+  padding: 20px 20px 30px;
+  border: 3px solid var(--bpl-gold-color);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.dlc__find-card-fieldset {
+  width: 100%;
+  padding: 20px 20px 25px;
+  background-color: var(--bpl-gold-color);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dlc__form-header {
+  margin: 0;
+  color: var(--bpl-black-color);
+  font-family: var(--bpl-forum-font);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+
+.dlc__input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.dlc__field {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 10px;
+  color: var(--bpl-gold-color);
+  font-family: var(--bpl-forum-font);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+
+.dlc__field::placeholder {
+  color: var(--bpl-grey-color);
+}
+
+.dlc__btn-find-card {
+  padding: 10px 40px;
+  font-size: 20px;
+}
+
+.dlc__get-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 35px;
+}
+
+.dlc__get-card-header {
+  color: var(--bpl-black-color);
+  font-family: var(--bpl-forum-font);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+}
+
+.dlc__get-card-text {
+  color: var(--bpl-black-color);
+  text-align: right;
+  font-family: var(--bpl-inter-font);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+}
+
+.dlc__auth-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.btn-auth {
+  width: 75px;
+  height: 30px;
 }
