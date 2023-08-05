@@ -1,17 +1,17 @@
 :root {
   /* Layout */
-  --content-width: 1440px;
+  --content-max-width: 1440px;
 
   /* Color palette */
-  --bpl-black-color: #000000;
-  --bpl-white-color: #FFFFFF;
-  --bpl-dark-color: #0C0C0E;
-  --bpl-gold-color: #BB945F;
-  --bpl-grey-color: #8E8E8E;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-dark: #0C0C0E;
+  --color-gold: #BB945F;
+  --color-gray: #8E8E8E;
 
   /* Fonts */
-  --bpl-inter-font: 'Inter';
-  --bpl-forum-font: 'Forum';
+  --font-inter: 'Inter';
+  --font-forum: 'Forum';
 }
 
 *,
@@ -67,8 +67,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: var(--bpl-inter-font);
-  color: var(--bpl-black-color);
+  font-family: var(--font-inter);
+  color: var(--color-black);
 }
 
 main {
@@ -76,9 +76,9 @@ main {
 }
 
 .main-wrapper {
-  width: var(--content-width);
+  width: var(--content-max-width);
   display: flex;
-  background: var(--bpl-white-color);
+  background: var(--color-white);
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -88,12 +88,12 @@ main {
 /* Buttons */
 
 .btn {
-  background-color: var(--bpl-white-color);
-  border: 1px solid var(--bpl-dark-color);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-dark);
   border-radius: 2px;
-  color: var(--bpl-dark-color);
+  color: var(--color-dark);
   text-align: center;
-  font-family: var(--bpl-inter-font);
+  font-family: var(--font-inter);
   font-size: 10px;
   font-style: normal;
   font-weight: 700;
@@ -104,14 +104,14 @@ main {
 }
 
 .btn:hover:not(:disabled) {
-  background-color: var(--bpl-gold-color);
-  border-color: var(--bpl-gold-color);
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
   transition-duration: 0.6s;
 }
 
 .btn:disabled {
-  border: 1px solid var(--bpl-gold-color);
-  color: var(--bpl-gold-color);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
   cursor: default;
 }
 
@@ -134,8 +134,8 @@ main {
 }
 
 .section__heading {
-  color: var(--bpl-dark-color);
-  font-family: var(--bpl-forum-font);
+  color: var(--color-dark);
+  font-family: var(--font-forum);
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -149,22 +149,13 @@ main {
   margin: 20px auto 0;
   content: "";
   width: 50px;
-  border-bottom: 1px solid var(--bpl-dark-color);
+  border-bottom: 1px solid var(--color-dark);
 }
 
 /* Header */
 
 .header {
-  width: 100vw;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background: var(--bpl-dark-color);
-}
-
-.header__container {
-  width: var(--content-width);
+  width: 100%;
   height: 90px;
   display: flex;
   flex-direction: row;
@@ -172,11 +163,12 @@ main {
   align-items: center;
   padding: 20px;
   gap: 40px;
+  background: var(--color-dark);
 }
 
 .header__logo {
-  color: var(--bpl-white-color);
-  font-family: var(--bpl-forum-font);
+  color: var(--color-white);
+  font-family: var(--font-forum);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -201,8 +193,8 @@ main {
 
 .header__nav-link {
   height: 50px;
-  color: var(--bpl-white-color);
-  font-family: var(--bpl-inter-font);
+  color: var(--color-white);
+  font-family: var(--font-inter);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -216,13 +208,13 @@ main {
   width: 0;
   height: 3px;
   bottom: 7px;
-  background-color: var(--bpl-white-color);
+  background-color: var(--color-white);
   transition: width ease-in-out 0.6s;
 }
 
 .header__nav-link:hover::after {
   width: 100%;
-  background-color: var(--bpl-white-color);
+  background-color: var(--color-white);
   transition: width ease-in-out 0.6s;
 }
 
@@ -230,7 +222,7 @@ main {
 
 .welcome-section {
   height: 600px;
-  background-image: linear-gradient(180deg, var(--bpl-dark-color) 0%, var(--bpl-dark-color) 0.01%, rgba(18, 18, 21, 0.1) 50%), url(../images/pictures/welcome/welcome.jpg);
+  background-image: linear-gradient(180deg, var(--color-dark) 0%, var(--color-dark) 0.01%, rgba(18, 18, 21, 0.1) 50%), url(../images/pictures/welcome/welcome.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -241,16 +233,16 @@ main {
   width: 600px;
   padding: 35px 40px;
   margin: 220px auto auto 0;
-  color: var(--bpl-white-color);
+  color: var(--color-white);
   text-align: center;
-  font-family: var(--bpl-forum-font);
+  font-family: var(--font-forum);
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
   line-height: 50px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  background-color: var(--bpl-dark-color);
+  background-color: var(--color-dark);
 }
 
 /* About section */
@@ -263,9 +255,9 @@ main {
 }
 
 .about-section__description {
-  color: var(--bpl-black-color);
+  color: var(--color-black);
   text-align: center;
-  font-family: var(--bpl-inter-font);
+  font-family: var(--font-inter);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -306,21 +298,21 @@ main {
 .carousel__control {
   height: 16px;
   width: 16px;
-  background-color: var(--bpl-dark-color);
+  background-color: var(--color-dark);
   border-radius: 50%;
 }
 
 .carousel__control_active {
-  background-color: var(--bpl-gold-color);
+  background-color: var(--color-gold);
 }
 
 /* Favorites section */
 
 .favorites__sub-heading {
   align-self: flex-start;
-  color: var(--bpl-black-color);
+  color: var(--color-black);
   text-align: center;
-  font-family: var(--bpl-inter-font);
+  font-family: var(--font-inter);
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -344,7 +336,7 @@ main {
 .favorites__season-radio {
   width: 17px;
   height: 17px;
-  accent-color: var(--bpl-black-color);
+  accent-color: var(--color-black);
   cursor: pointer;
 }
 
@@ -376,7 +368,7 @@ main {
   width: 550px;
   height: 555px;
   padding: 15px 20px;
-  border: 1px solid var(--bpl-black-color);
+  border: 1px solid var(--color-black);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -394,8 +386,8 @@ main {
 .book-card__heading {
   margin: 0;
   height: 40px;
-  color: var(--bpl-black-color);
-  font-family: var(--bpl-forum-font);
+  color: var(--color-black);
+  font-family: var(--font-forum);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -410,12 +402,12 @@ main {
   display: block;
   content: "";
   width: 60px;
-  border-bottom: 1px solid var(--bpl-gold-color);
+  border-bottom: 1px solid var(--color-gold);
 }
 
 .book-card__title {
   margin: 0;
-  font-family: var(--bpl-inter-font);
+  font-family: var(--font-inter);
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
@@ -429,8 +421,8 @@ main {
 
 .book-card__description {
   width: 358px;
-  color: var(--bpl-black-color);
-  font-family: var(--bpl-inter-font);
+  color: var(--color-black);
+  font-family: var(--font-inter);
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -453,9 +445,9 @@ main {
 /* Coffee shop section */
 
 .coffee-section__description {
-  color: var(--bpl-black-color);
+  color: var(--color-black);
   text-align: center;
-  font-family: var(--bpl-inter-font);
+  font-family: var(--font-inter);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -481,8 +473,8 @@ main {
 
 .menu-heading {
   margin: 0;
-  color: var(--bpl-gold-color);
-  font-family: var(--bpl-forum-font);
+  color: var(--color-gold);
+  font-family: var(--font-forum);
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -521,8 +513,8 @@ main {
 }
 
 .menu__item-name {
-  color: var(--bpl-black-color);
-  font-family: var(--bpl-inter-font);
+  color: var(--color-black);
+  font-family: var(--font-inter);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -534,7 +526,7 @@ main {
 .menu__divider {
   width: 100px;
   height: 1px;
-  background-color: var(--bpl-gold-color);
+  background-color: var(--color-gold);
   border: none;
 }
 
@@ -543,8 +535,8 @@ main {
 }
 
 .menu__item-price {
-  color: var(--bpl-black-color);
-  font-family: var(--bpl-forum-font);
+  color: var(--color-black);
+  font-family: var(--font-forum);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -573,8 +565,8 @@ main {
 
 .contacts__sub-heading {
   margin: 0;
-  color: var(--bpl-black-color);
-  font-family: var(--bpl-inter-font);
+  color: var(--color-black);
+  font-family: var(--font-inter);
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -584,8 +576,8 @@ main {
 }
 
 .contacts__info-line {
-  color: var(--bpl-black-color);
-  font-family: var(--bpl-inter-font);
+  color: var(--color-black);
+  font-family: var(--font-inter);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -606,8 +598,8 @@ main {
 .dlc__find-card-header {
   height: 36px;
   margin: 0;
-  color: var(--bpl-black-color);
-  font-family: var(--bpl-inter-font);
+  color: var(--color-black);
+  font-family: var(--font-inter);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -618,7 +610,7 @@ main {
 .dlc__find-card-form {
   width: 600px;
   padding: 17px 17px 27px;
-  border: 3px solid var(--bpl-gold-color);
+  border: 3px solid var(--color-gold);
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -630,7 +622,7 @@ main {
 .dlc__find-card-fieldset {
   width: 100%;
   padding: 20px 20px 25px;
-  background-color: var(--bpl-gold-color);
+  background-color: var(--color-gold);
   border: none;
   display: flex;
   flex-direction: column;
@@ -639,8 +631,8 @@ main {
 
 .dlc__form-header {
   margin: 0;
-  color: var(--bpl-black-color);
-  font-family: var(--bpl-forum-font);
+  color: var(--color-black);
+  font-family: var(--font-forum);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -658,8 +650,8 @@ main {
   padding: 8px 20px;
   border: none;
   border-radius: 10px;
-  color: var(--bpl-gold-color);
-  font-family: var(--bpl-forum-font);
+  color: var(--color-gold);
+  font-family: var(--font-forum);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -668,7 +660,7 @@ main {
 }
 
 .dlc__field::placeholder {
-  color: var(--bpl-grey-color);
+  color: var(--color-gray);
 }
 
 .dlc__btn-find-card {
@@ -684,8 +676,8 @@ main {
 }
 
 .dlc__get-card-header {
-  color: var(--bpl-black-color);
-  font-family: var(--bpl-forum-font);
+  color: var(--color-black);
+  font-family: var(--font-forum);
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
@@ -694,9 +686,9 @@ main {
 }
 
 .dlc__get-card-text {
-  color: var(--bpl-black-color);
+  color: var(--color-black);
   text-align: right;
-  font-family: var(--bpl-inter-font);
+  font-family: var(--font-inter);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -720,10 +712,10 @@ main {
 .footer {
   width: 100%;
   padding: 20px 20px 0;
-  background-color: var(--bpl-dark-color);
+  background-color: var(--color-dark);
   display: flex;
   flex-direction: column;
-  color: var(--bpl-white-color);
+  color: var(--color-white);
   font-size: 15px;
   line-height: 20px;
 }
@@ -760,7 +752,7 @@ main {
 .footer__divider {
   width: 100%;
   height: 1px;
-  background-color: var(--bpl-white-color);
+  background-color: var(--color-white);
   border: none;
   margin: 30px 0 0;
 }
@@ -788,6 +780,6 @@ main {
 }
 
 .footnote__link:hover {
-  color: var(--bpl-gold-color);
+  color: var(--color-gold);
   transition: 0.6s;
 }
