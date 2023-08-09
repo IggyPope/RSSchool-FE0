@@ -24,7 +24,7 @@
   <div class="main-wrapper">
     <header class="header">
       <h1 class="header__logo">Brooklyn Public Library</h1>
-      <nav class="header__nav-menu">
+      <nav class="header__nav-menu header__nav-menu_tablet-closed">
         <ul class="header__nav-list">
           <li class="header__nav-item"><a href="#about" class="header__nav-link">About</a></li>
           <li class="header__nav-item"><a href="#favorites" class="header__nav-link">Favorites</a></li>
@@ -33,7 +33,12 @@
           <li class="header__nav-item"><a href="#library-card" class="header__nav-link">Library Card</a></li>
         </ul>
       </nav>
-      <a href=""><img src="./images/icons/icon-profile.svg" alt="profile icon"></a>
+      <img class="header__profile-icon" src="./images/icons/icon-profile.svg" alt="profile icon">
+      <div class="header__burger-icon">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </div>
     </header>
     <main>
       <section id="welcome" class="welcome-section">
