@@ -76,7 +76,8 @@ main {
 }
 
 .main-wrapper {
-  width: var(--content-max-width);
+  max-width: var(--content-max-width);
+  width: 100%;
   display: flex;
   background: var(--color-white);
   flex-direction: column;
@@ -167,6 +168,8 @@ main {
 }
 
 .header__logo {
+  width: 294px;
+  flex-shrink: 0;
   color: var(--color-white);
   font-family: var(--font-forum);
   font-size: 30px;
@@ -348,6 +351,22 @@ main {
   line-height: normal;
   border: none;
   cursor: pointer;
+}
+
+.season-label__winter {
+  width: 67px;
+}
+
+.season-label__spring {
+  width: 62px;
+}
+
+.season-label__summer {
+  width: 79px;
+}
+
+.season-label__autumn {
+  width: 74px;
 }
 
 .favorites__radio-button input[type="radio"]:checked+label {
