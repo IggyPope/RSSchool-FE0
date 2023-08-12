@@ -382,11 +382,12 @@ main {
 }
 
 .favorites__seasons-form {
+  max-width: 704px;
+  width: 100%;
   align-self: flex-start;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  gap: 90px;
+  justify-content: space-between;
 }
 
 .favorites__radio-button {
@@ -413,39 +414,49 @@ main {
 }
 
 .season-label__winter {
-  width: 67px;
+  width: 88px;
 }
 
 .season-label__spring {
-  width: 62px;
+  width: 83px;
 }
 
 .season-label__summer {
-  width: 79px;
+  width: 100px;
 }
 
 .season-label__autumn {
-  width: 74px;
+  width: 95px;
 }
 
 .favorites__radio-button input[type="radio"]:checked+label {
   font-weight: 700;
 }
 
-.favorites-content {
+/* .favorites-content {
   align-self: flex-start;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   column-gap: 260px;
   row-gap: 40px;
+} */
+
+.favorites-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  column-gap: 20px;
+  row-gap: 40px;
 }
 
 .book-card {
+  justify-self: center;
   position: relative;
   width: 550px;
   height: 555px;
   padding: 15px 20px;
+  margin-right: 40px;
   border: 1px solid var(--color-black);
   display: flex;
   flex-direction: column;
@@ -517,7 +528,7 @@ main {
 .book-card__cover {
   position: absolute;
   bottom: -1px;
-  right: -40px;
+  right: -41px;
 }
 
 /*#endregion*/
@@ -871,6 +882,12 @@ main {
 }
 
 /*#endregion*/
+
+@media (max-width: 1239px) {
+  .favorites-content {
+    justify-content: center;
+  }
+}
 
 @media (max-width: 1024px) {
 
