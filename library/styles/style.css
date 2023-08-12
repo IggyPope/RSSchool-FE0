@@ -302,27 +302,49 @@ main {
   line-height: 40px;
 }
 
-.carousel {
+.slider {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 58px;
+}
+
+.slider__caret {
+  width: 24px;
+  height: 24px;
+  background: no-repeat center url("../images/icons/caret_left.svg");
+}
+
+.slider__caret:last-child {
+  transform: rotate(180deg);
+}
+
+.slider__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 }
 
-.carousel__images {
+.slider__images {
+  height: 560px;
+  width: min-content;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 25px;
+  overflow: hidden;
 }
 
-.carousel__controls {
+.slider__pagination {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.carousel__control-wrapper {
+.pagination__dot-wrapper {
   margin: -5px 0;
   padding: 0;
   width: 26px;
@@ -333,14 +355,14 @@ main {
   cursor: pointer;
 }
 
-.carousel__control {
+.pagination__dot {
   height: 16px;
   width: 16px;
   background-color: var(--color-dark);
   border-radius: 50%;
 }
 
-.carousel__control_active {
+.pagination__dot_active {
   background-color: var(--color-gold);
 }
 
@@ -850,7 +872,7 @@ main {
 
 /*#endregion*/
 
-@media (max-width: 1050px) {
+@media (max-width: 1024px) {
 
   /*#region Header section */
 
@@ -914,6 +936,25 @@ main {
   }
 
   /*#endregion*/
+}
 
+@media (hover: hover) and (min-width: 982px),
+(hover: none) and (min-width: 965px) {
 
+  /*#region About section */
+
+  .slider__control-wrapper:nth-child(4),
+  .slider__control-wrapper:nth-child(5) {
+    display: none;
+  }
+
+  .slider__caret {
+    display: none;
+  }
+
+  .slider__images {
+    width: 100%;
+  }
+
+  /*#endregion*/
 }
