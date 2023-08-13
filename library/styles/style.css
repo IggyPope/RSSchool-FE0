@@ -382,7 +382,7 @@ main {
 }
 
 .favorites__seasons-form {
-  max-width: 704px;
+  max-width: 700px;
   width: 100%;
   align-self: flex-start;
   display: flex;
@@ -404,7 +404,7 @@ main {
 }
 
 .favorites__season-label {
-  padding-left: 21px;
+  padding-left: 20px;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -414,19 +414,19 @@ main {
 }
 
 .season-label__winter {
-  width: 88px;
+  width: 86px;
 }
 
 .season-label__spring {
-  width: 83px;
+  width: 79px;
 }
 
 .season-label__summer {
-  width: 100px;
+  width: 99px;
 }
 
 .season-label__autumn {
-  width: 95px;
+  width: 94px;
 }
 
 .favorites__radio-button input[type="radio"]:checked+label {
@@ -888,6 +888,14 @@ main {
 
 /*#endregion*/
 
+@media (hover: hover) and (min-width: 1457px),
+(hover: none) and (min-width: 1440px) {
+
+  .pagination__dot-wrapper:nth-child(5) {
+    display: none;
+  }
+}
+
 @media (max-width: 1260px) {
 
   .favorites-content {
@@ -911,6 +919,7 @@ main {
   .dlc__get-card-container {
     width: 600px;
     align-items: center;
+    gap: 40px;
   }
 
   .dlc__get-card-text {
@@ -919,8 +928,6 @@ main {
 }
 
 @media (max-width: 1024px) {
-
-  /*#region Header section */
 
   .header__nav-menu {
     width: 332px;
@@ -981,16 +988,23 @@ main {
     transform: translateY(-10px) rotate(-45deg);
   }
 
-  /*#endregion*/
+  .footer__footnote {
+    width: 100%;
+    margin: 44px 0;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 2px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 @media (hover: hover) and (min-width: 982px),
 (hover: none) and (min-width: 965px) {
 
-  /*#region About section */
-
-  .slider__control-wrapper:nth-child(4),
-  .slider__control-wrapper:nth-child(5) {
+  .pagination__dot-wrapper:nth-child(4) {
     display: none;
   }
 
@@ -1001,6 +1015,4 @@ main {
   .slider__images {
     width: 100%;
   }
-
-  /*#endregion*/
 }
