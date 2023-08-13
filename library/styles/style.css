@@ -108,10 +108,12 @@ main {
   transition-duration: 0.6s;
 }
 
-.btn:hover:not(:disabled) {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  transition-duration: 0.6s;
+@media (hover: hover) {
+  .btn:hover:not(:disabled) {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    transition-duration: 0.6s;
+  }
 }
 
 .btn:disabled {
@@ -225,10 +227,12 @@ main {
   transition: width ease-in-out 0.6s;
 }
 
-.header__nav-link:hover::after {
-  width: 100%;
-  background-color: var(--color-white);
-  transition: width ease-in-out 0.6s;
+@media (hover: hover) {
+  .header__nav-link:hover::after {
+    width: 100%;
+    background-color: var(--color-white);
+    transition: width ease-in-out 0.6s;
+  }
 }
 
 .header__profile-icon {
@@ -758,6 +762,10 @@ main {
   letter-spacing: 0.6px;
 }
 
+.dlc__field:focus {
+  outline-color: var(--color-gold);
+}
+
 .dlc__field::placeholder {
   color: var(--color-gray);
 }
@@ -881,9 +889,11 @@ main {
   text-align: end;
 }
 
-.footnote__link:hover {
-  color: var(--color-gold);
-  transition: 0.6s;
+@media (hover: hover) {
+  .footnote__link:hover {
+    color: var(--color-gold);
+    transition: 0.6s;
+  }
 }
 
 /*#endregion*/
