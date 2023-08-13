@@ -758,6 +758,10 @@ main {
   letter-spacing: 0.6px;
 }
 
+.dlc__field:focus {
+  outline-color: var(--color-gold);
+}
+
 .dlc__field::placeholder {
   color: var(--color-gray);
 }
