@@ -683,6 +683,10 @@ main {
 
 /*#region Digital library cards section */
 
+.dlc__wrapper {
+  gap: 21px 20px;
+}
+
 .dlc__form-container {
   display: flex;
   flex-direction: column;
@@ -764,6 +768,7 @@ main {
 }
 
 .dlc__get-card-container {
+  width: 456px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -884,6 +889,11 @@ main {
 /*#endregion*/
 
 @media (max-width: 1260px) {
+
+  .favorites-content {
+    justify-content: center;
+  }
+
   .contacts__wrapper {
     flex-flow: column nowrap;
     row-gap: 100px;
@@ -892,11 +902,19 @@ main {
   .contacts-map {
     align-self: center;
   }
-}
 
-@media (max-width: 1239px) {
-  .favorites-content {
-    justify-content: center;
+  .dlc__wrapper {
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .dlc__get-card-container {
+    width: 600px;
+    align-items: center;
+  }
+
+  .dlc__get-card-text {
+    text-align: center;
   }
 }
 
