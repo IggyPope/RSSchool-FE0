@@ -23,18 +23,21 @@
 <body>
   <div class="main-wrapper">
     <header class="header">
-      <div class="header__container">
-        <h1 class="header__logo">Brooklyn Public Library</h1>
-        <nav class="header__nav-menu">
-          <ul class="header__nav-list">
-            <li class="header__nav-item"><a href="#about" class="header__nav-link">About</a></li>
-            <li class="header__nav-item"><a href="#favorites" class="header__nav-link">Favorites</a></li>
-            <li class="header__nav-item"><a href="#coffee-shop" class="header__nav-link">Coffee shop</a></li>
-            <li class="header__nav-item"><a href="#contacts" class="header__nav-link">Contacts</a></li>
-            <li class="header__nav-item"><a href="#library-card" class="header__nav-link">Library Card</a></li>
-          </ul>
-        </nav>
-        <a href=""><img src="./images/icons/icon-profile.svg" alt="profile icon"></a>
+      <h1 class="header__logo">Brooklyn Public Library</h1>
+      <nav id="header__nav-menu" class="header__nav-menu">
+        <ul class="header__nav-list">
+          <li class="header__nav-item"><a href="#about" class="header__nav-link">About</a></li>
+          <li class="header__nav-item"><a href="#favorites" class="header__nav-link">Favorites</a></li>
+          <li class="header__nav-item"><a href="#coffee-shop" class="header__nav-link">Coffee shop</a></li>
+          <li class="header__nav-item"><a href="#contacts" class="header__nav-link">Contacts</a></li>
+          <li class="header__nav-item"><a href="#library-card" class="header__nav-link">Library Card</a></li>
+        </ul>
+      </nav>
+      <img class="header__profile-icon" src="./images/icons/icon-profile.svg" alt="profile icon">
+      <div id="header__btn-burger" class="header__btn-burger">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
       </div>
     </header>
     <main>
@@ -53,29 +56,45 @@
           <p class="about-section__description">The Brooklyn Library is a free workspace, a large number of books and a
             cozy coffee shop inside</p>
 
-          <div class="carousel">
+          <div class="slider">
+            <div class="slider__caret"></div>
+            <div class="slider__inner">
 
-            <div class="carousel__images">
-              <img class="carousel__image" src="./images/pictures/about/about_pic_1.jpg" alt="girl in a library">
-              <img class="carousel__image" src="./images/pictures/about/about_pic_2.jpg" alt="sculptures">
-              <img class="carousel__image" src="./images/pictures/about/about_pic_3.jpg" alt="books on a shelf">
+              <div class="slider__images">
+                <img class="slider__image" src="./images/pictures/about/about_pic_1.jpg" alt="girl in a library">
+                <img class="slider__image" src="./images/pictures/about/about_pic_2.jpg" alt="sculptures">
+                <img class="slider__image" src="./images/pictures/about/about_pic_3.jpg" alt="library interior">
+                <img class="slider__image" src="./images/pictures/about/about_pic_4.jpg" alt="books on a shelf">
+                <img class="slider__image" src="./images/pictures/about/about_pic_5.jpg" alt="ancient building">
+              </div>
+
+              <div class="slider__pagination">
+                <div class="pagination__dot-wrapper">
+                  <div class="pagination__dot pagination__dot_active"></div>
+                </div>
+
+                <div class="pagination__dot-wrapper">
+                  <div class="pagination__dot"></div>
+                </div>
+
+                <div class="pagination__dot-wrapper">
+                  <div class="pagination__dot"></div>
+                </div>
+
+                <div class="pagination__dot-wrapper">
+                  <div class="pagination__dot"></div>
+                </div>
+
+                <div class="pagination__dot-wrapper">
+                  <div class="pagination__dot"></div>
+                </div>
+              </div>
+
             </div>
-
-            <div class="carousel__controls">
-              <div class="carousel__control-wrapper">
-                <div class="carousel__control carousel__control_active"></div>
-              </div>
-
-              <div class="carousel__control-wrapper">
-                <div class="carousel__control"></div>
-              </div>
-
-              <div class="carousel__control-wrapper">
-                <div class="carousel__control"></div>
-              </div>
-            </div>
-
+            <div class="slider__caret"></div>
           </div>
+
+
         </div>
       </section>
 
@@ -88,22 +107,22 @@
         <form id="seasons-form" class="favorites__seasons-form">
           <div class="favorites__radio-button">
             <input id="season-winter" type="radio" name="season-radio" class="favorites__season-radio" checked>
-            <label for="season-winter" class="favorites__season-label">Winter</label>
+            <label for="season-winter" class="favorites__season-label season-label__winter">Winter</label>
           </div>
 
           <div class="favorites__radio-button">
             <input id="season-spring" type="radio" name="season-radio" class="favorites__season-radio">
-            <label for="season-spring" class="favorites__season-label">Spring</label>
+            <label for="season-spring" class="favorites__season-label season-label__spring">Spring</label>
           </div>
 
           <div class="favorites__radio-button">
             <input id="season-summer" type="radio" name="season-radio" class="favorites__season-radio">
-            <label for="season-summer" class="favorites__season-label">Summer</label>
+            <label for="season-summer" class="favorites__season-label season-label__summer">Summer</label>
           </div>
 
           <div class="favorites__radio-button">
             <input id="season-autumn" type="radio" name="season-radio" class="favorites__season-radio">
-            <label for="season-autumn" class="favorites__season-label">Autumn</label>
+            <label for="season-autumn" class="favorites__season-label season-label__autumn">Autumn</label>
           </div>
         </form>
 
@@ -186,7 +205,7 @@
           desserts from bakery.
         </p>
 
-        <div class="section-container_flex-row">
+        <div class="coffee-section__menu-container section-container_flex-row">
           <div class="menu-section menu-beverages">
             <h3 class="menu-heading">Coffee &amp; Tea</h3>
 
@@ -276,7 +295,7 @@
       <section id="contacts" class="section contacts-section">
         <h2 class="section__heading">Our contacts</h2>
 
-        <div class="section-container_flex-row">
+        <div class="contacts__wrapper section-container_flex-row">
           <div class="contacts__info">
 
             <h3 class="contacts__sub-heading">For all library inquiries:</h3>
@@ -311,7 +330,7 @@
       <section id="library-card" class="section dlc-section">
         <h2 class="section__heading">Digital library cards</h2>
 
-        <div class="section-container_flex-row">
+        <div class="dlc__wrapper section-container_flex-row">
           <div class="dlc__form-container">
             <h3 class="dlc__find-card-header">Find your Library card</h3>
             <form class="dlc__find-card-form">
@@ -329,8 +348,8 @@
             <h3 class="dlc__get-card-header">Get a reader card</h3>
 
             <p class="dlc__get-card-text">
-              You will be able to see a reader card after<br>
-              logging into account or you can register a new<br>
+              You will be able to see a reader card after
+              logging into account or you can register a new
               account
             </p>
 
@@ -402,6 +421,7 @@
   </div>
 
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/self-check.js"></script>
 </body>
 
 </html>
