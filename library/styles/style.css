@@ -683,6 +683,11 @@ main {
   text-transform: capitalize;
 }
 
+.contacts-map {
+  max-width: 696px;
+  width: 100%;
+}
+
 /*#endregion*/
 
 /*#region Digital library cards section */
