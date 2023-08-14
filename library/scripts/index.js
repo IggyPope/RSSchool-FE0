@@ -1,9 +1,11 @@
 const burgerButton = document.querySelector('#header__btn-burger');
 const navMenu = document.querySelector('#header__nav-menu');
+const navList = document.querySelector('#header__nav-list');
 let isNavMenuOpen = false;
 
 const closeMenu = (event) => {
-  if (event.target !== navMenu) {
+  console.log(event.target);
+  if (event.target !== navMenu && event.target !== navList) {
     toggleMenu(event);
   }
 };
