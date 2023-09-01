@@ -375,7 +375,7 @@ main {
   line-height: 40px;
 }
 
-.slider {
+.carousel {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -383,7 +383,7 @@ main {
   gap: 58px;
 }
 
-.slider__caret {
+.carousel__caret {
   width: 24px;
   height: 24px;
   background: no-repeat center url("../images/icons/caret_left.svg");
@@ -394,18 +394,18 @@ main {
   }
 }
 
-.slider__caret:last-child {
+.carousel__caret:last-child {
   transform: rotate(180deg);
 }
 
-.slider__inner {
+.carousel__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 }
 
-.slider__images {
+.carousel__images {
   height: 560px;
   width: min-content;
   display: flex;
@@ -421,13 +421,13 @@ main {
   }
 }
 
-.slider__pagination {
+.carousel-pagination {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.pagination__dot-wrapper {
+.carousel-pagination__dot-wrapper {
   margin: -5px 0;
   padding: 0;
   width: 26px;
@@ -454,14 +454,14 @@ main {
   }
 }
 
-.pagination__dot {
+.carousel-pagination__dot {
   height: 16px;
   width: 16px;
   background-color: var(--color-dark);
   border-radius: 50%;
 }
 
-.pagination__dot_active {
+.carousel-pagination__dot_active {
   background-color: var(--color-gold);
 }
 
