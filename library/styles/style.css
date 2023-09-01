@@ -426,7 +426,8 @@ main {
   align-items: center;
 }
 
-.carousel-pagination__dot-wrapper {
+.carousel-pagination__dot-button {
+  position: relative;
   margin: -5px 0;
   padding: 0;
   width: 26px;
@@ -436,6 +437,20 @@ main {
   align-items: center;
   cursor: pointer;
 
+  &::before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    background-color: var(--color-dark);
+    border-radius: 50%;
+  }
+
+  &[aria-current="true"]::before {
+    cursor: default;
+    background-color: var(--color-gold);
+  }
+
   @media (hover: hover) and (min-width: 1457px),
   (hover: none) and (min-width: 1440px) {
 
@@ -443,17 +458,6 @@ main {
       display: none;
     }
   }
-}
-
-.carousel-pagination__dot {
-  height: 16px;
-  width: 16px;
-  background-color: var(--color-dark);
-  border-radius: 50%;
-}
-
-.carousel-pagination__dot_active {
-  background-color: var(--color-gold);
 }
 
 /*#endregion*/
