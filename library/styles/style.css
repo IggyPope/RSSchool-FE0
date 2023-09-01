@@ -371,6 +371,7 @@ main {
 /*#region About section */
 
 .about-section__content {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -388,6 +389,7 @@ main {
 }
 
 .carousel {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -401,6 +403,10 @@ main {
   background: no-repeat center url("../images/icons/caret_left.svg");
 }
 
+.carousel__caret:last-child {
+  transform: rotate(180deg);
+}
+
 @media (hover: hover) and (min-width: 1457px),
 (hover: none) and (min-width: 1440px) {
   .carousel__caret {
@@ -408,12 +414,8 @@ main {
   }
 }
 
-.carousel__caret:last-child {
-  transform: rotate(180deg);
-}
-
 .carousel__container {
-  overflow: hidden;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -427,14 +429,22 @@ main {
   }
 }
 
-.carousel__track {
-  height: 560px;
-  align-self: flex-start;
+.carousel-wrapper {
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
-  gap: 25px;
+  justify-content: flex-start;
   overflow: hidden;
+}
+
+.carousel__track {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 25px;
+}
+
+.carousel__item {
+  height: 560px;
 }
 
 .carousel-pagination {
