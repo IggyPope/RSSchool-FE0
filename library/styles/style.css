@@ -106,19 +106,19 @@ main {
   letter-spacing: 1px;
   cursor: pointer;
   transition-duration: 0.6s;
+}
 
-  &:disabled {
-    border: 1px solid var(--color-gold);
-    color: var(--color-gold);
-    cursor: default;
-  }
+.btn:disabled {
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  cursor: default;
+}
 
-  @media (hover: hover) {
-    &:hover:not(:disabled) {
-      background-color: var(--color-gold);
-      border-color: var(--color-gold);
-      transition-duration: 0.6s;
-    }
+@media (hover: hover) {
+  .btn:hover:not(:disabled) {
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+    transition-duration: 0.6s;
   }
 }
 
@@ -192,9 +192,11 @@ main {
 
 .header__nav-menu {
   margin-left: auto;
+}
 
-  @media (hover:hover) and (max-width: 1041px),
-  (hover:none) and (max-width: 1024px) {
+@media (hover:hover) and (max-width: 1041px),
+(hover:none) and (max-width: 1024px) {
+  .header__nav-menu {
     width: 332px;
     position: absolute;
     top: 100%;
@@ -204,10 +206,10 @@ main {
     justify-content: center;
     background-color: var(--color-dark);
     transition: all 600ms ease-in-out;
+  }
 
-    &.header__nav-menu_open {
-      right: 0;
-    }
+  .header__nav-menu_open {
+    right: 0;
   }
 }
 
@@ -217,9 +219,11 @@ main {
   justify-content: space-between;
   align-items: center;
   gap: 30px;
+}
 
-  @media (hover:hover) and (max-width: 1041px),
-  (hover:none) and (max-width: 1024px) {
+@media (hover:hover) and (max-width: 1041px),
+(hover:none) and (max-width: 1024px) {
+  .header__nav-list {
     width: fit-content;
     flex-direction: column;
   }
@@ -227,9 +231,11 @@ main {
 
 .header__nav-item {
   height: 50px;
+}
 
-  @media (hover:hover) and (max-width: 1041px),
-  (hover:none) and (max-width: 1024px) {
+@media (hover:hover) and (max-width: 1041px),
+(hover:none) and (max-width: 1024px) {
+  .header__nav-item {
     width: 100%;
     text-align: center;
   }
@@ -243,31 +249,33 @@ main {
   font-style: normal;
   font-weight: 400;
   line-height: 50px;
+}
 
-  @media (hover:hover) and (max-width: 1041px),
-  (hover:none) and (max-width: 1024px) {
+.header__nav-link::after {
+  position: relative;
+  display: block;
+  content: "";
+  width: 0;
+  height: 3px;
+  bottom: 7px;
+  background-color: var(--color-white);
+  transition: width ease-in-out 0.6s;
+}
+
+@media (hover: hover) {
+  .header__nav-link:hover::after {
     width: 100%;
-    height: 100%;
-    display: inline-block;
-  }
-
-  &::after {
-    position: relative;
-    display: block;
-    content: "";
-    width: 0;
-    height: 3px;
-    bottom: 7px;
     background-color: var(--color-white);
     transition: width ease-in-out 0.6s;
   }
+}
 
-  @media (hover: hover) {
-    &:hover::after {
-      width: 100%;
-      background-color: var(--color-white);
-      transition: width ease-in-out 0.6s;
-    }
+@media (hover:hover) and (max-width: 1041px),
+(hover:none) and (max-width: 1024px) {
+  .header__nav-link {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
   }
 }
 
@@ -276,9 +284,11 @@ main {
   box-sizing: border-box;
   line-height: 1;
   border: none;
+}
 
-  @media (hover:hover) and (max-width: 1041px),
-  (hover:none) and (max-width: 1024px) {
+@media (hover:hover) and (max-width: 1041px),
+(hover:none) and (max-width: 1024px) {
+  .header__profile-icon {
     margin-left: auto;
   }
 }
@@ -295,9 +305,11 @@ main {
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+}
 
-  @media (hover:hover) and (max-width: 1041px),
-  (hover:none) and (max-width: 1024px) {
+@media (hover:hover) and (max-width: 1041px),
+(hover:none) and (max-width: 1024px) {
+  .header__btn-burger {
     display: flex;
   }
 }
@@ -387,9 +399,11 @@ main {
   width: 24px;
   height: 24px;
   background: no-repeat center url("../images/icons/caret_left.svg");
+}
 
-  @media (hover: hover) and (min-width: 1457px),
-  (hover: none) and (min-width: 1440px) {
+@media (hover: hover) and (min-width: 1457px),
+(hover: none) and (min-width: 1440px) {
+  .carousel__caret {
     display: none;
   }
 }
@@ -404,15 +418,18 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 40px;
+}
 
-  @media (hover: hover) and (max-width: 1456px),
-  (hover: none) and (max-width: 1439px) {
+@media (hover: hover) and (max-width: 1456px),
+(hover: none) and (max-width: 1439px) {
+  .carousel__container {
     max-width: 450px;
   }
 }
 
 .carousel__track {
   height: 560px;
+  align-self: flex-start;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -436,27 +453,26 @@ main {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    height: 16px;
-    width: 16px;
-    background-color: var(--color-dark);
-    border-radius: 50%;
-  }
+.carousel-pagination__button::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  background-color: var(--color-dark);
+  border-radius: 50%;
+}
 
-  &[aria-current="true"]::before {
-    cursor: default;
-    background-color: var(--color-gold);
-  }
+.carousel-pagination__button[aria-current="true"]::before {
+  cursor: default;
+  background-color: var(--color-gold);
+}
 
-  @media (hover: hover) and (min-width: 1457px),
-  (hover: none) and (min-width: 1440px) {
-
-    &:nth-child(n+4) {
-      display: none;
-    }
+@media (hover: hover) and (min-width: 1457px),
+(hover: none) and (min-width: 1440px) {
+  .carousel-pagination__button:nth-child(n+4) {
+    display: none;
   }
 }
 
@@ -533,8 +549,10 @@ main {
   justify-content: space-between;
   column-gap: 20px;
   row-gap: 40px;
+}
 
-  @media (max-width: 1260px) {
+@media (max-width: 1260px) {
+  .favorites-content {
     justify-content: center;
   }
 }
@@ -736,11 +754,12 @@ main {
 
 .contacts__wrapper {
   gap: 100px 20px;
+}
 
-  @media (hover: hover) and (max-width: 1277px),
-  (hover: none) and (max-width: 1260px) {
+@media (hover: hover) and (max-width: 1277px),
+(hover: none) and (max-width: 1260px) {
+  .contacts__wrapper {
     flex-flow: column nowrap;
-    row-gap: 100px;
   }
 }
 
@@ -786,11 +805,7 @@ main {
 .contacts-map {
   max-width: 696px;
   width: 100%;
-
-  @media (hover: hover) and (max-width: 1277px),
-  (hover: none) and (max-width: 1260px) {
-    align-self: center;
-  }
+  align-self: center;
 }
 
 /*#endregion*/
@@ -799,8 +814,10 @@ main {
 
 .dlc__wrapper {
   gap: 21px 20px;
+}
 
-  @media (max-width: 1260px) {
+@media (max-width: 1260px) {
+  .dlc__wrapper {
     flex-flow: column nowrap;
     align-items: center;
   }
@@ -898,8 +915,10 @@ main {
   flex-direction: column;
   align-items: flex-end;
   gap: 35px;
+}
 
-  @media (max-width: 1260px) {
+@media (max-width: 1260px) {
+  .dlc__get-card-container {
     width: 600px;
     align-items: center;
     gap: 40px;
@@ -925,8 +944,10 @@ main {
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 0.4px;
+}
 
-  @media (max-width: 1260px) {
+@media (max-width: 1260px) {
+  .dlc__get-card-text {
     text-align: center;
   }
 }
@@ -1002,9 +1023,11 @@ main {
   letter-spacing: 2px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
 
-  @media (hover:hover) and (max-width: 1041px),
-  (hover:none) and (max-width: 1024px) {
+@media (hover:hover) and (max-width: 1041px),
+(hover:none) and (max-width: 1024px) {
+  .footer__footnote {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
