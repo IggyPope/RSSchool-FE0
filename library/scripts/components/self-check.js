@@ -87,4 +87,6 @@ const results = [
   'При наличии авторизации вместо кнопки Check the Card будут отображаться данные пользователя и бейджи, как на дизайне LibraryCard after login in account. +2',
 ];
 
-console.log(results.join('\n'));
+export default function printSelfCheck() {
+  console.log(results.join('\n'));
+}
