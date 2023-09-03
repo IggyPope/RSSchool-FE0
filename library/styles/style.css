@@ -441,6 +441,7 @@ main {
   display: flex;
   flex-flow: row nowrap;
   gap: 25px;
+  transition: 0.3s;
 }
 
 .carousel__item {
