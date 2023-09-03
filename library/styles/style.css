@@ -478,6 +478,13 @@ main {
   transition: .3s;
 }
 
+@media (hover: hover) {
+  .carousel-pagination__button:hover:not([aria-current="true"]):before {
+    background-color: var(--color-gold);
+    opacity: 0.4;
+  }
+}
+
 .carousel-pagination__button[aria-current="true"]::before {
   cursor: default;
   background-color: var(--color-gold);
