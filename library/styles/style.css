@@ -401,6 +401,12 @@ main {
   width: 24px;
   height: 24px;
   background: no-repeat center url("../images/icons/caret_left.svg");
+  cursor: pointer;
+}
+
+.carousel__caret[disabled="true"] {
+  cursor: default;
+  opacity: 0.3;
 }
 
 .carousel__caret:last-child {
@@ -425,7 +431,7 @@ main {
 @media (hover: hover) and (max-width: 1456px),
 (hover: none) and (max-width: 1439px) {
   .carousel__container {
-    max-width: 450px;
+    width: 450px;
   }
 }
 
@@ -442,10 +448,6 @@ main {
   flex-flow: row nowrap;
   gap: 25px;
   transition: 0.3s;
-}
-
-.carousel__item {
-  height: 560px;
 }
 
 .carousel-pagination {
@@ -473,6 +475,7 @@ main {
   width: 16px;
   background-color: var(--color-dark);
   border-radius: 50%;
+  transition: .3s;
 }
 
 .carousel-pagination__button[aria-current="true"]::before {
