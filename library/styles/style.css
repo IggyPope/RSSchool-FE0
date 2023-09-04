@@ -85,7 +85,6 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  overflow: hidden;
 }
 
 /*#endregion*/
@@ -200,7 +199,9 @@ main {
     width: 332px;
     position: absolute;
     top: 100%;
-    right: -100%;
+    right: 0;
+    visibility: hidden;
+    opacity: 0;
     padding: 10px 0 100px;
     display: flex;
     justify-content: center;
@@ -209,7 +210,8 @@ main {
   }
 
   .header__nav-menu_open {
-    right: 0;
+    visibility: visible;
+    opacity: 1;
   }
 }
 
