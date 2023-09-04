@@ -504,8 +504,6 @@ main {
 /*#region Favorites section */
 
 .favorites__sticky-nav {
-  position: sticky;
-  top: 10px;
   width: 100%;
   z-index: 10;
   align-self: flex-start;
@@ -513,6 +511,13 @@ main {
   flex-flow: column nowrap;
   gap: 40px;
   background: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 1260px) {
+  .favorites__sticky-nav {
+    position: sticky;
+    top: 10px;
+  }
 }
 
 .favorites__sub-heading {
