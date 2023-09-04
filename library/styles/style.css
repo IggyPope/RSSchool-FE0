@@ -449,7 +449,7 @@ main {
   display: flex;
   flex-flow: row nowrap;
   gap: 25px;
-  transition: 0.3s;
+  transition: 0.5s;
 }
 
 .carousel-pagination {
@@ -477,7 +477,7 @@ main {
   width: 16px;
   background-color: var(--color-dark);
   border-radius: 50%;
-  transition: .3s;
+  transition: 0.5s;
 }
 
 @media (hover: hover) {
