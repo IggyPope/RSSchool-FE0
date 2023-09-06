@@ -42,8 +42,8 @@
         </svg>
         <div class="header__profile-drop-menu">
           <h3 class="profile-drop-menu__heading">Profile</h3>
-          <button class="profile-drop-menu__link">Log In</button>
-          <button class="profile-drop-menu__link">Register</button>
+          <button class="profile-drop-menu__link btn-login">Log In</button>
+          <button class="profile-drop-menu__link btn-signup">Register</button>
         </div>
       </div>
       <div id="header__btn-burger" class="header__btn-burger">
@@ -576,8 +576,8 @@
             </p>
 
             <div class="dlc__auth-controls">
-              <button class="btn btn-auth" id="btn-signup">Sign Up</button>
-              <button class="btn btn-auth" id="btn-login">Log in</button>
+              <button class="btn btn-auth btn-signup" id="btn-signup">Sign Up</button>
+              <button class="btn btn-auth btn-login" id="btn-login">Log in</button>
             </div>
           </div>
         </div>
@@ -643,10 +643,10 @@
   </div>
 
   <div class="modals">
-    <div class="modals__overlay"></div>
-    <div id="modal-register" class="modal modal-auth">
+    <div id="modal-overlay" class="modals__overlay"></div>
+    <div id="modal-signup" class="modal modal-auth">
       <div class="modal-container">
-        <button class="btn-reset btn-close_black modal-auth__btn-close">
+        <button class="btn-reset btn-close_black modal-auth__btn-close modal__btn-close">
           <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
             <path d="M2 16.8507L17 2.00003" stroke-width="3" />
             <path d="M2 2.14926L17 17" stroke-width="3" />
@@ -670,7 +670,7 @@
             <button class="btn btn-auth" type="submit">Sign Up</button>
             <div class="modal-auth__footnote">
               <span class="modal-auth__footnote-text">Already have an account?</span>
-              <button class="btn-reset modal-auth__footnote-btn">Login</button>
+              <button class="btn-reset modal-auth__footnote-btn btn-login">Login</button>
             </div>
           </div>
         </form>
@@ -679,7 +679,7 @@
 
     <div id="modal-login" class="modal modal-auth">
       <div class="modal-container">
-        <button class="btn-reset btn-close_black modal-auth__btn-close">
+        <button class="btn-reset btn-close_black modal-auth__btn-close modal__btn-close">
           <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
             <path d="M2 16.8507L17 2.00003" stroke-width="3" />
             <path d="M2 2.14926L17 17" stroke-width="3" />
@@ -699,7 +699,7 @@
             <button class="btn btn-auth" type="submit">Log In</button>
             <div class="modal-auth__footnote">
               <span class="modal-auth__footnote-text">Don’t have an account?</span>
-              <button class="btn-reset modal-auth__footnote-btn">Register</button>
+              <button class="btn-reset modal-auth__footnote-btn btn-signup">Register</button>
             </div>
           </div>
         </form>

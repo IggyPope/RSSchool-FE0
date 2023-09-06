@@ -112,7 +112,9 @@ main {
   line-height: normal;
   letter-spacing: 1px;
   cursor: pointer;
+  transition-property: background-color, border;
   transition-duration: 0.6s;
+  transition-timing-function: ease-in-out;
 }
 
 .btn:disabled {
@@ -124,8 +126,10 @@ main {
 @media (hover: hover) {
   .btn:hover:not(:disabled) {
     background-color: var(--color-gold);
-    border-color: var(--color-gold);
+    border: 1px solid var(--color-gold);
+    transition-property: background-color, border;
     transition-duration: 0.6s;
+    transition-timing-function: ease-in-out;
   }
 }
 
@@ -1206,11 +1210,11 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 101;
 }
 
-.modals__overlay_visible {
+.modals__overlay_active {
   display: block;
 }
 
@@ -1224,7 +1228,7 @@ main {
   z-index: 102;
 }
 
-.modal_visible {
+.modal_active {
   visibility: visible;
 }
 
