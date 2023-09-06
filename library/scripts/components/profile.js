@@ -1,4 +1,4 @@
-const profileIconButton = document.querySelector('.header__profile');
+const profileIconButton = document.querySelector('.header__profile-icon');
 const profileActionsMenu = document.querySelector('.header__profile-drop-menu');
 
 let isProfileActionsMenuOpen = false;
