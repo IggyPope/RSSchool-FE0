@@ -281,22 +281,88 @@ main {
   }
 }
 
-.header__profile-icon {
-  padding: 0;
-  box-sizing: border-box;
-  line-height: 1;
-  border: none;
+.header__profile {
+  position: relative;
+  display: flex;
 }
 
 @media (hover:hover) and (max-width: 1041px),
 (hover:none) and (max-width: 1024px) {
-  .header__profile-icon {
+  .header__profile {
     margin-left: auto;
   }
 }
 
-.header__profile-icon:hover {
+.header__profile-icon {
+  fill: var(--color-white);
   cursor: pointer;
+}
+
+@media (hover: hover) {
+  .header__profile-icon:hover {
+    fill: var(--color-gold)
+  }
+}
+
+.header__profile-drop-menu {
+  opacity: 0;
+  visibility: hidden;
+  padding: 5px 0 0;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 80px;
+  height: 115px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-white);
+  transition: all ease-in-out 0.3s;
+}
+
+.header__profile-drop-menu_active {
+  opacity: 1;
+  visibility: visible;
+  transition: all ease-in-out 0.3s;
+}
+
+.profile-drop-menu__heading {
+  color: var(--color-black);
+  font-family: var(--font-inter);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.profile-drop-menu__heading::after {
+  display: block;
+  margin: 5px auto;
+  content: "";
+  width: 40px;
+  height: 1px;
+  border: none;
+  background-color: var(--color-gold);
+}
+
+.profile-drop-menu__link {
+  padding: 0;
+  color: var(--color-black);
+  font-family: var(--font-inter);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .profile-drop-menu__link:hover {
+    color: var(--color-gold);
+  }
 }
 
 .header__btn-burger {
