@@ -5,16 +5,13 @@ let isProfileActionsMenuOpen = false;
 
 export default function initializeProfileActions() {
   profileIconButton.addEventListener('click', toggleProfileActionsMenu);
+  document.addEventListener('click', closeProfileActionsMenu);
 }
 
 function toggleProfileActionsMenu(event) {
   isProfileActionsMenuOpen = !isProfileActionsMenuOpen;
 
   profileActionsMenu.classList.toggle('header__profile-drop-menu_active');
-
-  isProfileActionsMenuOpen
-    ? document.addEventListener('click', closeProfileActionsMenu)
-    : document.removeEventListener('click', closeProfileActionsMenu);
 
   event.toggledByProfileHandler = true;
 }

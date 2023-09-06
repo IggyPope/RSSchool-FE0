@@ -6,6 +6,7 @@ let isNavMenuOpen = false;
 
 export default function initializeBurger() {
   burgerButton.addEventListener('click', toggleMenu);
+  document.addEventListener('click', closeMenu);
 }
 
 function toggleMenu(event) {
@@ -13,10 +14,6 @@ function toggleMenu(event) {
 
   navMenu.classList.toggle('header__nav-menu_open');
   burgerButton.classList.toggle('header__btn-burger_open');
-
-  isNavMenuOpen
-    ? document.addEventListener('click', closeMenu)
-    : document.removeEventListener('click', closeMenu);
 
   event.toggledByBurgerHandler = true;
 }
