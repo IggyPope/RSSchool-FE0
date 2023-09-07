@@ -42,8 +42,8 @@
         </svg>
         <div class="header__profile-drop-menu">
           <h3 class="profile-drop-menu__heading">Profile</h3>
-          <button class="profile-drop-menu__link btn-login">Log In</button>
-          <button class="profile-drop-menu__link btn-signup">Register</button>
+          <button class="profile-drop-menu__link btn-modal-invoke" data-modal="modal-login">Log In</button>
+          <button class="profile-drop-menu__link btn-modal-invoke" data-modal="modal-signup">Register</button>
         </div>
       </div>
       <div id="header__btn-burger" class="header__btn-burger">
@@ -576,8 +576,8 @@
             </p>
 
             <div class="dlc__auth-controls">
-              <button class="btn btn-auth btn-signup" id="btn-signup">Sign Up</button>
-              <button class="btn btn-auth btn-login" id="btn-login">Log in</button>
+              <button class="btn btn-auth btn-modal-invoke" data-modal="modal-signup">Sign Up</button>
+              <button class="btn btn-auth btn-modal-invoke" data-modal="modal-login">Log in</button>
             </div>
           </div>
         </div>
@@ -652,25 +652,26 @@
             <path d="M2 2.14926L17 17" stroke-width="3" />
           </svg>
         </button>
-        <form class="modal-auth__form ">
+        <form class="modal-auth__form" name="signupForm">
           <h3 class="modal-auth__heading">Register</h3>
 
           <div class="modal__input-group">
             <label for="register-firstName" class="modal__label">First name</label>
-            <input id="register-firstName" type="text" class="modal__input">
+            <input id="register-firstName" type="text" class="modal__input" name="firstName" required>
             <label for="register-lastName" class="modal__label">Last name</label>
-            <input id="register-lastName" type="text" class="modal__input">
+            <input id="register-lastName" type="text" class="modal__input" name="lastName" required>
             <label for="register-email" class="modal__label">E-mail</label>
-            <input id="register-email" type="email" class="modal__input">
+            <input id="register-email" type="email" class="modal__input" name="email" required>
             <label for="register-password" class="modal__label">Password</label>
-            <input id="register-password" type="password" class="modal__input">
+            <input id="register-password" type="password" class="modal__input" name="password" required minlength=8>
           </div>
 
           <div class="modal-auth__footer">
             <button class="btn btn-auth" type="submit">Sign Up</button>
             <div class="modal-auth__footnote">
               <span class="modal-auth__footnote-text">Already have an account?</span>
-              <button class="btn-reset modal-auth__footnote-btn btn-login">Login</button>
+              <button class="btn-reset modal-auth__footnote-btn btn-modal-invoke"
+                data-modal="modal-login">Login</button>
             </div>
           </div>
         </form>
@@ -685,21 +686,22 @@
             <path d="M2 2.14926L17 17" stroke-width="3" />
           </svg>
         </button>
-        <form class="modal-auth__form">
+        <form class="modal-auth__form" name="loginForm">
           <h3 class="modal-auth__heading">Login</h3>
 
           <div class="modal__input-group">
             <label for="login-email-card" class="modal__label">E-mail or readers card</label>
-            <input id="login-email-card" type="text" class="modal__input" required>
+            <input id="login-email-card" type="text" class="modal__input" name="emailCard" required>
             <label for="login-password" class="modal__label">Password</label>
-            <input id="login-password" type="password" class="modal__input" required>
+            <input id="login-password" type="password" class="modal__input" name="password" required>
           </div>
 
           <div class="modal-auth__footer">
             <button class="btn btn-auth" type="submit">Log In</button>
             <div class="modal-auth__footnote">
               <span class="modal-auth__footnote-text">Don’t have an account?</span>
-              <button class="btn-reset modal-auth__footnote-btn btn-signup">Register</button>
+              <button class="btn-reset modal-auth__footnote-btn btn-modal-invoke"
+                data-modal="modal-signup">Register</button>
             </div>
           </div>
         </form>

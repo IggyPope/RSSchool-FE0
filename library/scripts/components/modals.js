@@ -2,32 +2,20 @@ const modalOverlay = document.querySelector('#modal-overlay');
 
 let currentlyOpenModal = null;
 
-const closeModalButtons = document.querySelectorAll('.modal__btn-close');
-
-const signupModal = document.querySelector('#modal-signup');
-const signupButtons = document.querySelectorAll('.btn-signup');
-
-const loginModal = document.querySelector('#modal-login');
-const loginButtons = document.querySelectorAll('.btn-login');
+const modalInvokeButtons = document.querySelectorAll('.btn-modal-invoke');
+const modalCloseButtons = document.querySelectorAll('.modal__btn-close');
 
 export default function initializeModals() {
-  signupButtons.forEach((button) => {
+  modalInvokeButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
-      openModal(signupModal);
-    });
-  });
-
-  loginButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal(loginModal);
+      openModal(document.querySelector(`#${button.dataset.modal}`));
     });
   });
 
   modalOverlay.addEventListener('click', closeModal);
 
-  closeModalButtons.forEach((button) => {
+  modalCloseButtons.forEach((button) => {
     button.addEventListener('click', closeModal);
   });
 }
@@ -43,7 +31,7 @@ function openModal(modal) {
   modalOverlay.classList.add('modals__overlay_active');
 }
 
-function closeModal() {
+export function closeModal() {
   if (currentlyOpenModal) {
     currentlyOpenModal.classList.remove('modal_active');
     currentlyOpenModal = null;
