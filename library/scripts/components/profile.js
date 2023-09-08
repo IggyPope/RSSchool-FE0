@@ -3,6 +3,7 @@ import { closeModal } from './modals.js';
 const profileIconButtons = document.querySelectorAll('.profile-btn');
 const profileActionsMenu = document.querySelector('.header__profile-menu');
 const profileMenuLinks = document.querySelectorAll('.profile-menu__link');
+const profileMenuHeading = document.querySelector('.profile-menu__heading');
 
 let isProfileActionsMenuOpen = false;
 
@@ -128,6 +129,12 @@ function authorizeUser(user) {
   localStorage.setItem('currentUser', JSON.stringify(user));
 
   profileIconButtons.item(1).innerHTML = user.initials;
+  profileIconButtons
+    .item(1)
+    .setAttribute('title', `${user.firstName} ${user.lastName}`);
+
+  profileMenuHeading.innerHTML = user.cardNumber;
+  profileMenuHeading.setAttribute('style', 'font-size: 13px');
 
   profileIconButtons.forEach((button) => {
     button.classList.toggle('profile-btn_disabled');
