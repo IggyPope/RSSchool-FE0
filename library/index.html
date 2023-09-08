@@ -117,7 +117,7 @@
         <div class="favorites__sticky-nav">
           <h3 class="favorites__sub-heading">Pick favorites of season</h3>
 
-          <form id="seasons-form" class="favorites__seasons-form">
+          <form id="seasons-form" class="favorites__seasons-form" method="post">
             <div class="favorites__radio-button">
               <input id="selector-winter" type="radio" name="season-radio" class="favorites__season-radio"
                 value="winter">
@@ -563,7 +563,7 @@
         <div class="dlc__wrapper section-container_flex-row">
           <div class="dlc__form-container">
             <h3 class="dlc__find-card-header">Find your Library card</h3>
-            <form class="dlc__find-card-form" name="findCardForm">
+            <form class="dlc__find-card-form" name="findCardForm" method="post">
               <div class="dlc__find-card-fieldset">
                 <h4 class="dlc__form-header">Brooklyn Public Library</h4>
                 <input id="reader-name" class="dlc__field" type="text" name="readerName" placeholder="Reader's name"
@@ -692,7 +692,7 @@
             <path d="M2 2.14926L17 17" stroke-width="3" />
           </svg>
         </button>
-        <form class="modal-auth__form" name="signupForm">
+        <form class="modal-auth__form" name="signupForm" method="post">
           <h3 class="modal-auth__heading">Register</h3>
 
           <div class="modal__input-group">
@@ -726,14 +726,14 @@
             <path d="M2 2.14926L17 17" stroke-width="3" />
           </svg>
         </button>
-        <form class="modal-auth__form" name="loginForm">
+        <form class="modal-auth__form" name="loginForm" method="post">
           <h3 class="modal-auth__heading">Login</h3>
 
           <div class="modal__input-group">
             <label for="login-email-card" class="modal__label">E-mail or readers card</label>
-            <input id="login-email-card" type="text" class="modal__input" name="emailCard" required>
+            <input id="login-email-card" type="text" class="modal__input" name="id" required>
             <label for="login-password" class="modal__label">Password</label>
-            <input id="login-password" type="password" class="modal__input" name="password" required>
+            <input id="login-password" type="password" class="modal__input" name="password" required minlength=8>
           </div>
 
           <div class="modal-auth__footer">

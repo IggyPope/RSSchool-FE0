@@ -15,7 +15,6 @@ const profileStats = document.querySelector('.dlc__profile-stats');
 const visitsCountDisplay = document.querySelectorAll('.visits-count');
 const booksCountDisplay = document.querySelectorAll('.books-count');
 
-// const checkCardButton = document.querySelector('.dlc__btn-find-card');
 const dlcSectionSubHeading = document.querySelector('.dlc__find-card-header');
 const dlcGetCardSections = document.querySelectorAll(
   '.dlc__get-card-container'
@@ -25,7 +24,10 @@ export default function initializeProfileActions() {
   profileIconButtons.forEach((button) => {
     button.addEventListener('click', toggleProfileActionsMenu);
   });
+
   document.addEventListener('click', closeProfileActionsMenu);
+
+  loginForm.addEventListener('submit', loginUser);
 
   signupForm.addEventListener('submit', registerUser);
 
@@ -49,6 +51,21 @@ function closeProfileActionsMenu(event) {
   ) {
     toggleProfileActionsMenu(event);
   }
+}
+
+function loginUser(event) {
+  event.preventDefault();
+
+  let user = {};
+
+  const formData = new FormData(event.target);
+
+  user.id = formData.get('id');
+  user.password = formData.get('password');
+
+  authenticateUser(user.id, user.password);
+
+  closeModal();
 }
 
 function registerUser(event) {
