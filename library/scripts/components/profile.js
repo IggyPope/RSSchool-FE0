@@ -15,6 +15,7 @@ const profileStats = document.querySelector('.dlc__profile-stats');
 const visitsCountDisplay = document.querySelectorAll('.visits-count');
 const booksCountDisplay = document.querySelectorAll('.books-count');
 
+// const checkCardButton = document.querySelector('.dlc__btn-find-card');
 const dlcSectionSubHeading = document.querySelector('.dlc__find-card-header');
 const dlcGetCardSections = document.querySelectorAll(
   '.dlc__get-card-container'
@@ -27,6 +28,8 @@ export default function initializeProfileActions() {
   document.addEventListener('click', closeProfileActionsMenu);
 
   signupForm.addEventListener('submit', registerUser);
+
+  findCardForm.addEventListener('submit', checkCard);
 }
 
 function toggleProfileActionsMenu(event) {
@@ -135,6 +138,47 @@ function authorizeUser(user) {
 
   dlcGetCardSections.forEach((section) =>
     section.classList.toggle('display-none')
+  );
+}
+
+function checkCard(event) {
+  console.log('Check card');
+  event.preventDefault();
+
+  const readerName = findCardForm.elements.readerName.value;
+  const cardNumber = findCardForm.elements.cardNumber.value;
+
+  const user = getUserByNameAndCardNumber(readerName, cardNumber);
+
+  if (user) {
+    visitsCountDisplay[0].innerHTML = user.visits;
+    booksCountDisplay[0].innerHTML = user.books.length;
+
+    findCardButton.classList.add('display-none');
+    profileStats.classList.remove('display-none');
+
+    setTimeout(() => {
+      findCardButton.classList.remove('display-none');
+      profileStats.classList.add('display-none');
+
+      visitsCountDisplay[0].innerHTML = '';
+      booksCountDisplay[0].innerHTML = '';
+    }, 1000);
+  } else {
+    alert('Wrong credentials!');
+  }
+}
+
+function getUserByNameAndCardNumber(name, cardNumber) {
+  let storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+  const [firstName, lastName] = name.split(' ');
+
+  return storedUsers.find(
+    (user) =>
+      user.firstName === firstName &&
+      user.lastName === lastName &&
+      user.cardNumber === cardNumber
   );
 }
 

@@ -566,8 +566,10 @@
             <form class="dlc__find-card-form" name="findCardForm">
               <div class="dlc__find-card-fieldset">
                 <h4 class="dlc__form-header">Brooklyn Public Library</h4>
-                <input class="dlc__field" type="text" name="readerName" id="reader-name" placeholder="Reader's name">
-                <input class="dlc__field" type="text" name="cardNumber" id="card-number" placeholder="Card number">
+                <input id="reader-name" class="dlc__field" type="text" name="readerName" placeholder="Reader's name"
+                  required>
+                <input id="card-number" class="dlc__field" type="text" name="cardNumber" placeholder="Card number"
+                  required>
               </div>
 
               <button class="btn dlc__btn-find-card" type="submit">Check the card</button>
