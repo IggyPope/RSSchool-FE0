@@ -163,7 +163,7 @@ function checkCard(event) {
 
       visitsCountDisplay[0].innerHTML = '';
       booksCountDisplay[0].innerHTML = '';
-    }, 1000);
+    }, 10000);
   } else {
     alert('Wrong credentials!');
   }
