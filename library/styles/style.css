@@ -87,6 +87,10 @@ main {
   align-items: center;
 }
 
+.display-none {
+  display: none !important;
+}
+
 /*#endregion*/
 
 /*#region Buttons */
@@ -324,7 +328,31 @@ main {
   }
 }
 
-.header__profile-drop-menu {
+.header__profile-btn {
+  width: 28px;
+  height: 28px;
+  color: var(--color-gold);
+  font-family: var(--font-inter);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+}
+
+@media (hover: hover) {
+  .header__profile-btn:hover {
+    background-color: var(--color-gold);
+    color: var(--color-white);
+  }
+}
+
+.profile-btn_disabled {
+  display: none;
+}
+
+.header__profile-menu {
   opacity: 0;
   visibility: hidden;
   padding: 5px 0 0;
@@ -341,13 +369,13 @@ main {
   transition: all ease-in-out 0.3s;
 }
 
-.header__profile-drop-menu_active {
+.header__profile-menu_active {
   opacity: 1;
   visibility: visible;
   transition: all ease-in-out 0.3s;
 }
 
-.profile-drop-menu__heading {
+.profile-menu__heading {
   color: var(--color-black);
   font-family: var(--font-inter);
   font-size: 15px;
@@ -356,7 +384,7 @@ main {
   line-height: 20px;
 }
 
-.profile-drop-menu__heading::after {
+.profile-menu__heading::after {
   display: block;
   margin: 5px auto;
   content: "";
@@ -366,7 +394,7 @@ main {
   background-color: var(--color-gold);
 }
 
-.profile-drop-menu__link {
+.profile-menu__link {
   padding: 0;
   color: var(--color-black);
   font-family: var(--font-inter);
@@ -379,8 +407,12 @@ main {
   cursor: pointer;
 }
 
+.profile-menu__link_disabled {
+  display: none;
+}
+
 @media (hover: hover) {
-  .profile-drop-menu__link:hover {
+  .profile-menu__link:hover {
     color: var(--color-gold);
   }
 }
@@ -1005,14 +1037,13 @@ main {
   width: 100%;
   padding: 20px 20px 25px;
   background-color: var(--color-gold);
-  border: none;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
 }
 
 .dlc__form-header {
-  margin: 0;
+  margin: 0 0 -5px;
   color: var(--color-black);
   font-family: var(--font-forum);
   font-size: 30px;
@@ -1052,6 +1083,33 @@ main {
 .dlc__btn-find-card {
   padding: 9px 39px;
   font-size: 20px;
+}
+
+.dlc__profile-stats {
+  margin-top: -5px;
+  margin-bottom: -14px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.dlc__profile-stat-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.profile-stat__heading {
+  color: var(--color-black);
+  text-align: center;
+  font-family: var(--font-inter);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
 }
 
 .dlc__get-card-container {

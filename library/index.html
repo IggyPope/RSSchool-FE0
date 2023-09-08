@@ -33,17 +33,25 @@
           <li class="header__nav-item"><a href="#library-card" class="header__nav-link">Library Card</a></li>
         </ul>
       </nav>
-      <div class="header__profile" role="button">
-        <svg class="header__profile-icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+      <div class="header__profile">
+        <svg class="header__profile-icon profile-btn" width="28" height="28" viewBox="0 0 28 28"
+          xmlns="http://www.w3.org/2000/svg">
           <g id="icon_profile">
             <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd"
               d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
           </g>
         </svg>
-        <div class="header__profile-drop-menu">
-          <h3 class="profile-drop-menu__heading">Profile</h3>
-          <button class="profile-drop-menu__link btn-modal-invoke" data-modal="modal-login">Log In</button>
-          <button class="profile-drop-menu__link btn-modal-invoke" data-modal="modal-signup">Register</button>
+        <button class="btn-reset header__profile-btn profile-btn profile-btn_disabled"></button>
+
+        <div class="header__profile-menu">
+          <h3 class="profile-menu__heading">Profile</h3>
+
+          <button class="profile-menu__link btn-modal-invoke" data-modal="modal-login">Log In</button>
+          <button class="profile-menu__link btn-modal-invoke" data-modal="modal-signup">Register</button>
+
+          <button class="profile-menu__link btn-modal-invoke profile-menu__link_disabled" data-modal="modal-profile">My
+            profile</button>
+          <button class="profile-menu__link profile-menu__link_disabled">Log Out</button>
         </div>
       </div>
       <div id="header__btn-burger" class="header__btn-burger">
@@ -555,15 +563,32 @@
         <div class="dlc__wrapper section-container_flex-row">
           <div class="dlc__form-container">
             <h3 class="dlc__find-card-header">Find your Library card</h3>
-            <form class="dlc__find-card-form">
-              <fieldset class="dlc__find-card-fieldset">
+            <form class="dlc__find-card-form" name="findCardForm">
+              <div class="dlc__find-card-fieldset">
                 <h4 class="dlc__form-header">Brooklyn Public Library</h4>
-                <div class="dlc__input-wrapper">
-                  <input class="dlc__field" type="text" name="reader-name" id="reader-name" placeholder="Reader's name">
-                  <input class="dlc__field" type="text" name="card-number" id="card-number" placeholder="Card number">
-                </div>
-              </fieldset>
+                <input class="dlc__field" type="text" name="readerName" id="reader-name" placeholder="Reader's name">
+                <input class="dlc__field" type="text" name="cardNumber" id="card-number" placeholder="Card number">
+              </div>
+
               <button class="btn dlc__btn-find-card" type="submit">Check the card</button>
+
+              <div class="dlc__profile-stats display-none">
+                <div class="dlc__profile-stat-container">
+                  <span class="profile-stat__heading">Visits</span>
+                  <img src="./images/icons/union.svg" alt="profile icon">
+                  <span class="profile-stat__heading visits-count"></span>
+                </div>
+                <div class="dlc__profile-stat-container">
+                  <span class="profile-stat__heading">Bonuses</span>
+                  <img src="./images/icons/star.svg" alt="star icon">
+                  <span class="profile-stat__heading">1240</span>
+                </div>
+                <div class="dlc__profile-stat-container">
+                  <span class="profile-stat__heading">Books</span>
+                  <img src="./images/icons/book.svg" alt="book icon">
+                  <span class="profile-stat__heading books-count"></span>
+                </div>
+              </div>
             </form>
           </div>
           <div class="dlc__get-card-container">
@@ -578,6 +603,19 @@
             <div class="dlc__auth-controls">
               <button class="btn btn-auth btn-modal-invoke" data-modal="modal-signup">Sign Up</button>
               <button class="btn btn-auth btn-modal-invoke" data-modal="modal-login">Log in</button>
+            </div>
+          </div>
+
+          <div class="dlc__get-card-container display-none">
+            <h3 class="dlc__get-card-header">Visit your profile</h3>
+
+            <p class="dlc__get-card-text">
+              With a digital library card you get free access to the Library’s wide array of digital resources including
+              e-books, databases, educational resources, and more.
+            </p>
+
+            <div class="dlc__auth-controls">
+              <button class="btn btn-auth btn-modal-invoke" data-modal="modal-profile">Profile</button>
             </div>
           </div>
         </div>
