@@ -5,6 +5,8 @@ let currentlyOpenModal = null;
 const modalInvokeButtons = document.querySelectorAll('.btn-modal-invoke');
 const modalCloseButtons = document.querySelectorAll('.modal__btn-close');
 
+const cardNumberButton = document.querySelector('.modal-profile__card-btn');
+
 export default function initializeModals() {
   modalInvokeButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
@@ -17,6 +19,11 @@ export default function initializeModals() {
 
   modalCloseButtons.forEach((button) => {
     button.addEventListener('click', closeModal);
+  });
+
+  cardNumberButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    copyButtonTextToClipboard(cardNumberButton);
   });
 }
 
@@ -38,4 +45,15 @@ export function closeModal() {
 
     modalOverlay.classList.remove('modals__overlay_active');
   }
+}
+
+function copyButtonTextToClipboard(button) {
+  const text = button.textContent;
+  navigator.clipboard.writeText(text);
+
+  button.classList.add('tooltip-show');
+
+  setTimeout(() => {
+    button.classList.remove('tooltip-show');
+  }, 1000);
 }

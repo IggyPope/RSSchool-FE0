@@ -4,6 +4,9 @@ const profileIconButtons = document.querySelectorAll('.profile-btn');
 const profileActionsMenu = document.querySelector('.header__profile-menu');
 const profileMenuLinks = document.querySelectorAll('.profile-menu__link');
 const profileMenuHeading = document.querySelector('.profile-menu__heading');
+const modalProfileIcon = document.querySelector('.modal-profile__profile-icon');
+const modalProfileName = document.querySelector('.modal-profile__reader-name');
+const cardNumberDisplays = document.querySelectorAll('.card-number__display');
 
 let isProfileActionsMenuOpen = false;
 
@@ -33,6 +36,11 @@ export default function initializeProfileActions() {
   signupForm.addEventListener('submit', registerUser);
 
   findCardForm.addEventListener('submit', checkCard);
+
+  let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  if (currentUser) {
+    authorizeUser(currentUser);
+  }
 }
 
 function toggleProfileActionsMenu(event) {
@@ -133,8 +141,14 @@ function authorizeUser(user) {
     .item(1)
     .setAttribute('title', `${user.firstName} ${user.lastName}`);
 
-  profileMenuHeading.innerHTML = user.cardNumber;
-  profileMenuHeading.setAttribute('style', 'font-size: 13px');
+  modalProfileIcon.innerHTML = user.initials;
+  modalProfileName.innerHTML = `${user.firstName} ${user.lastName}`;
+
+  cardNumberDisplays.forEach((element) => {
+    element.textContent = user.cardNumber;
+  });
+
+  profileMenuHeading.setAttribute('style', 'font-size: 12px');
 
   profileIconButtons.forEach((button) => {
     button.classList.toggle('profile-btn_disabled');

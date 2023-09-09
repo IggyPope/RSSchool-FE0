@@ -1291,7 +1291,7 @@ main {
   visibility: visible;
 }
 
-.modal-container {
+.modal-auth__container {
   position: relative;
   width: 100%;
   padding: 20px 25px;
@@ -1309,6 +1309,12 @@ main {
   position: absolute;
   top: 15px;
   right: 15px;
+}
+
+.modal-profile__btn-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
 }
 
 .modal-auth__heading {
@@ -1393,6 +1399,206 @@ main {
   .modal-auth__footnote-btn:hover {
     color: var(--color-gold);
   }
+}
+
+.modal-profile {
+  width: 600px;
+  height: 400px;
+}
+
+.modal-profile__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.modal-profile__left-section {
+  width: 170px;
+  height: 100%;
+  padding: 0 25px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 15px;
+  background-color: var(--color-dark);
+}
+
+.modal-profile__profile-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-gold);
+  font-family: var(--font-inter);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: capitalize;
+  background-color: var(--color-white);
+}
+
+.modal-profile__reader-name {
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  color: var(--color-black);
+  font-family: var(--font-inter);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: capitalize;
+  background-color: var(--color-white);
+}
+
+.modal-profile__right-section {
+  width: 100%;
+  height: 100%;
+  padding: 30px 20px 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.modal-profile__heading {
+  color: var(--color-black);
+  text-align: center;
+  font-family: var(--font-forum);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.modal-profile__profile-stats {
+  margin-bottom: -10px;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 20px;
+}
+
+.modal-profile__stat-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-profile__stat-heading {
+  color: var(--color-black);
+  text-align: center;
+  font-family: var(--font-inter);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: capitalize;
+}
+
+.rented-books__heading {
+  color: var(--color-dark);
+  font-family: var(--font-inter);
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.modal-profile__rented-books {
+  width: 390px;
+  height: 67px;
+  padding-left: 28px;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  overflow: auto;
+}
+
+.modal-profile__book {
+  list-style: disc;
+  list-style-position: initial;
+  padding: auto;
+  color: var(--color-black);
+  font-family: var(--font-inter);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  text-wrap: nowrap;
+}
+
+.modal-profile__card-number {
+  color: var(--color-dark);
+  font-family: var(--font-inter);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 15px;
+}
+
+.modal-profile__card-btn {
+  position: relative;
+  padding-right: 28px;
+  color: var(--color-gold);
+  font-family: var(--font-inter);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background-image: url('../images/icons/icon-copy.svg');
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.btn-tooltip:before {
+  content: 'Copied to clipboard';
+  position: absolute;
+  top: 100%;
+  margin-top: 10px;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 10px;
+  background: var(--color-dark);
+  color: #fff;
+  text-align: center;
+  text-wrap: nowrap;
+  font-size: 15px;
+  display: none;
+}
+
+.btn-tooltip:after {
+  content: "";
+  position: absolute;
+  margin-top: -10px;
+  top: 100%;
+  border: 10px solid var(--color-dark);
+  border-color: transparent transparent var(--color-dark) transparent;
+  display: none;
+}
+
+.tooltip-show::before,
+.tooltip-show::after {
+  display: block;
 }
 
 /*#endregion*/

@@ -44,7 +44,7 @@
         <button class="btn-reset header__profile-btn profile-btn profile-btn_disabled"></button>
 
         <div class="header__profile-menu">
-          <h3 class="profile-menu__heading">Profile</h3>
+          <h3 class="profile-menu__heading card-number__display">Profile</h3>
 
           <button class="profile-menu__link btn-modal-invoke" data-modal="modal-login">Log In</button>
           <button class="profile-menu__link btn-modal-invoke" data-modal="modal-signup">Register</button>
@@ -685,7 +685,7 @@
   <div class="modals">
     <div id="modal-overlay" class="modals__overlay"></div>
     <div id="modal-signup" class="modal modal-auth">
-      <div class="modal-container">
+      <div class="modal-auth__container">
         <button class="btn-reset btn-close_black modal-auth__btn-close modal__btn-close">
           <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
             <path d="M2 16.8507L17 2.00003" stroke-width="3" />
@@ -719,7 +719,7 @@
     </div>
 
     <div id="modal-login" class="modal modal-auth">
-      <div class="modal-container">
+      <div class="modal-auth__container">
         <button class="btn-reset btn-close_black modal-auth__btn-close modal__btn-close">
           <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
             <path d="M2 16.8507L17 2.00003" stroke-width="3" />
@@ -745,6 +745,55 @@
             </div>
           </div>
         </form>
+      </div>
+    </div>
+
+    <div id="modal-profile" class="modal modal-profile">
+      <div class="modal-profile__container">
+        <button class="btn-reset btn-close_black modal-profile__btn-close modal__btn-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+            <path d="M2 16.8507L17 2.00003" stroke-width="3" />
+            <path d="M2 2.14926L17 17" stroke-width="3" />
+          </svg>
+        </button>
+        <div class="modal-profile__left-section">
+          <div class="modal-profile__profile-icon"></div>
+          <div class="modal-profile__reader-name"></div>
+        </div>
+        <div class="modal-profile__right-section">
+          <h3 class="modal-profile__heading">My profile</h3>
+
+          <div class="modal-profile__profile-stats">
+            <div class="modal-profile__stat-container">
+              <span class="modal-profile__stat-heading">Visits</span>
+              <img src="./images/icons/union.svg" alt="profile icon">
+              <span class="profile-stat__heading visits-count"></span>
+            </div>
+
+            <div class="modal-profile__stat-container">
+              <span class="modal-profile__stat-heading">Bonuses</span>
+              <img src="./images/icons/star.svg" alt="star icon">
+              <span class="profile-stat__heading">1240</span>
+            </div>
+
+            <div class="modal-profile__stat-container">
+              <span class="modal-profile__stat-heading">Books</span>
+              <img src="./images/icons/book.svg" alt="book icon">
+              <span class="profile-stat__heading books-count"></span>
+            </div>
+          </div>
+
+          <h4 class="rented-books__heading">Rented books</h4>
+
+          <ul class="modal-profile__rented-books">
+            <li class="modal-profile__book">The Last Queen, Clive Irving</li>
+            <li class="modal-profile__book">Dominicana, Angie Cruz</li>
+          </ul>
+
+          <p class="modal-profile__card-number">
+            Card number <button class="btn-reset card-number__display modal-profile__card-btn btn-tooltip"></button>
+          </p>
+        </div>
       </div>
     </div>
   </div>
