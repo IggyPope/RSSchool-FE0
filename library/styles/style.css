@@ -623,7 +623,7 @@ main {
 
 .favorites__sticky-nav {
   width: 100%;
-  z-index: 10;
+  z-index: 20;
   align-self: flex-start;
   display: flex;
   flex-flow: column nowrap;
