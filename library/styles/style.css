@@ -613,8 +613,11 @@ main {
   }
 }
 
-.carousel-pagination__button[aria-current="true"]::before {
+.carousel-pagination__button[aria-current="true"] {
   cursor: default;
+}
+
+.carousel-pagination__button[aria-current="true"]::before {
   background-color: var(--color-gold);
 }
 
