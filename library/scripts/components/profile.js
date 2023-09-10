@@ -179,20 +179,17 @@ function authorizeUser(user) {
     display.innerHTML = user.visits;
   });
 
-  booksCountDisplay.forEach((display) => {
-    display.innerHTML = user.books.length;
-  });
-
   findCardButton.classList.add('display-none');
   profileStats.classList.remove('display-none');
 
   dlcGetCardSections.forEach((section) =>
     section.classList.toggle('display-none')
   );
+
+  checkRentedBooks();
 }
 
 function checkCard(event) {
-  console.log('Check card');
   event.preventDefault();
 
   const readerName = findCardForm.elements.readerName.value;
@@ -258,4 +255,48 @@ function buyCard(event) {
 
     closeModal();
   }
+}
+
+export function buyBook(button) {
+  let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let books = currentUser.books;
+
+  books.push(+button.dataset.bookId);
+
+  localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+  console.log(`Book #${button.dataset.bookId} bought`);
+
+  checkRentedBooks();
+}
+
+function checkRentedBooks() {
+  const buyBookButtons = document.querySelectorAll('.book-card__btn-buy');
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  const rentedBooks = currentUser.books || [];
+
+  buyBookButtons.forEach((button) => {
+    if (rentedBooks.includes(+button.dataset.bookId)) {
+      button.setAttribute('disabled', true);
+      button.innerText = 'Own';
+    } else {
+      button.removeAttribute('disabled');
+      button.innerText = 'Buy';
+    }
+  });
+
+  booksCountDisplay.forEach((display) => {
+    display.innerText = currentUser.books.length;
+  });
+
+  const rentedBooksList = document.querySelectorAll('.modal-profile__book');
+
+  rentedBooksList.forEach((bookItem) => {
+    if (rentedBooks.includes(+bookItem.dataset.bookId)) {
+      bookItem.removeAttribute('disabled');
+    } else {
+      bookItem.setAttribute('disabled', true);
+    }
+  });
 }

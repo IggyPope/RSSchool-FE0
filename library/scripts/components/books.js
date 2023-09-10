@@ -43,7 +43,7 @@ export default function loadBooksContent() {
         const bookButton = document.createElement('button');
         bookButton.classList.add('btn');
         bookButton.classList.add('book-card__btn-buy');
-        bookButton.dataset.id = book.id;
+        bookButton.dataset.bookId = book.id;
         bookButton.textContent = 'Buy';
 
         const bookImage = document.createElement('img');
@@ -61,6 +61,17 @@ export default function loadBooksContent() {
         bookCard.append(bookTextContainer, bookButton, bookImage);
 
         seasonContent.append(bookCard);
+
+        // Populate book list in the profile modal
+        const bookList = document.querySelector('.modal-profile__rented-books');
+
+        const bookItem = document.createElement('li');
+        bookItem.classList.add('modal-profile__book');
+        bookItem.dataset.bookId = book.id;
+        bookItem.setAttribute('disabled', true);
+        bookItem.textContent = `${book.title}, ${book.author}`;
+
+        bookList.append(bookItem);
       });
 
     booksContainer.append(seasonContent);

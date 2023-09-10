@@ -1559,6 +1559,10 @@ main {
   text-wrap: nowrap;
 }
 
+.modal-profile__book[disabled=true] {
+  display: none;
+}
+
 .modal-profile__card-number {
   color: var(--color-dark);
   font-family: var(--font-inter);
