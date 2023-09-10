@@ -118,6 +118,7 @@ function registerUser(event) {
   addUserToLocalStorage(newUser);
 
   authenticateUser(newUser.cardNumber, newUser.password) && closeModal();
+  event.target.reset();
 }
 
 function addUserToLocalStorage(user) {
