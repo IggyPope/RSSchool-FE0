@@ -268,6 +268,8 @@ function checkCard(event) {
 
       visitsCountDisplay[0].innerHTML = '';
       booksCountDisplay[0].innerHTML = '';
+
+      findCardForm.reset();
     }, 10000);
   } else {
     alert('Wrong credentials!');
