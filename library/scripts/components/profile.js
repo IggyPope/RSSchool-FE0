@@ -13,6 +13,8 @@ let isProfileActionsMenuOpen = false;
 const signupForm = document.forms.signupForm;
 const loginForm = document.forms.loginForm;
 const findCardForm = document.forms.findCardForm;
+const buyCardForm = document.forms.buyCardForm;
+
 const findCardButton = document.querySelector('.dlc__btn-find-card');
 const profileStats = document.querySelector('.dlc__profile-stats');
 
@@ -34,6 +36,9 @@ export default function initializeProfileActions() {
   loginForm.addEventListener('submit', loginUser);
 
   signupForm.addEventListener('submit', registerUser);
+
+  buyCardForm.addEventListener('submit', buyCard);
+  buyCardForm.addEventListener('change', handleBuyCardFormChange);
 
   findCardForm.addEventListener('submit', checkCard);
 
@@ -226,4 +231,29 @@ function generateCardNumber() {
   ).join('');
 
   return cardNumber;
+}
+
+function handleBuyCardFormChange() {
+  const buyCardBtn = buyCardForm.querySelector('#buy-card-btn');
+  const buyCardFormInputs = Array.from(buyCardForm.querySelectorAll('input'));
+
+  if (buyCardFormInputs.every((input) => input.value)) {
+    buyCardBtn.classList.remove('btn-inactive');
+    buyCardBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      buyCardForm.submit();
+    });
+  } else {
+    buyCardBtn.classList.add('btn-inactive');
+    buyCardBtn.removeEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      buyCardForm.submit();
+    });
+  }
+}
+
+function buyCard(event) {
+  event.preventDefault();
 }
