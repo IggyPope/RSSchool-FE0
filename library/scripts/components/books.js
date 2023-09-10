@@ -1,6 +1,6 @@
 import booksStorage from '../../assets/data/books.json' assert { type: 'json' };
 
-export function loadBooksContent() {
+export default function loadBooksContent() {
   const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
   const booksContainer = document.querySelector('.favorites__container');

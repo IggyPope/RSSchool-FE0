@@ -139,10 +139,12 @@ main {
 
 .btn-close_black {
   stroke: var(--color-dark);
+  fill: var(--color-dark);
 }
 
 .btn-close_white {
   stroke: var(--color-white);
+  fill: var(--color-white);
 }
 
 /*#endregion*/
@@ -1297,6 +1299,11 @@ main {
   visibility: visible;
 }
 
+.modal__btn-close {
+  width: 19px;
+  height: 19px;
+}
+
 .modal-auth__container {
   position: relative;
   width: 100%;
@@ -1313,14 +1320,14 @@ main {
 
 .modal-auth__btn-close {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 13px;
+  right: 13px;
 }
 
 .modal-profile__btn-close {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  top: 23px;
+  right: 23px;
 }
 
 .modal-auth__heading {
@@ -1361,6 +1368,7 @@ main {
 
 .modal__input {
   width: 100%;
+  height: 20px;
   border: 1px solid var(--color-gold);
 }
 
@@ -1605,6 +1613,100 @@ main {
 .tooltip-show::before,
 .tooltip-show::after {
   display: block;
+}
+
+.modal__buy-card {
+  width: 640px;
+  height: 540px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.modal-buy-card__header-container {
+  width: 100%;
+  height: 60px;
+  background-color: var(--color-dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-buy-card__heading {
+  color: var(--color-white);
+  font-family: var(--font-forum);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.modal-buy-card__main-container {
+  width: 100%;
+  height: 480px;
+  padding: 30px 35px 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.modal-buy-card__form {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+}
+
+.input-number_no-arrows::-webkit-outer-spin-button,
+.input-number_no-arrows::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-number_no-arrows {
+  appearance: initial;
+  -moz-appearance: textfield;
+}
+
+.exp-code-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+}
+
+.input-w45 {
+  width: 45px;
+}
+
+.modal-buy-card__footer {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-end;
+  gap: 25px;
+}
+
+.modal-buy-card__text {
+  width: 330px;
+  color: var(--color-gray);
+  font-family: var(--font-inter);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+}
+
+.modal-buy-card__price {
+  color: var(--color-dark);
+  font-family: var(--font-inter);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 /*#endregion*/
