@@ -1477,6 +1477,7 @@ main {
   line-height: 20px;
   text-transform: capitalize;
   background-color: var(--color-white);
+  overflow-x: hidden;
 }
 
 .modal-profile__right-section {
