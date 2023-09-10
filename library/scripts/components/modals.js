@@ -1,6 +1,6 @@
 const modalOverlay = document.querySelector('#modal-overlay');
 
-let currentlyOpenModal = null;
+let currentlyOpenModal = document.querySelector('.modal_active');
 
 const modalInvokeButtons = document.querySelectorAll('.btn-modal-invoke');
 const modalCloseButtons = document.querySelectorAll('.modal__btn-close');

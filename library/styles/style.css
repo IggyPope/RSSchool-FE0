@@ -137,28 +137,10 @@ main {
   }
 }
 
-.btn-inactive {
-  background-color: var(--color-white);
+.btn-inactive:disabled {
   border: 1px solid var(--color-dark);
-  border-radius: 2px;
   color: var(--color-dark);
-  text-align: center;
-  font-family: var(--font-inter);
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1px;
   cursor: default;
-  transition: none;
-}
-
-@media (hover: hover) {
-  .btn-inactive:hover:not(:disabled) {
-    background-color: initial;
-    border: 1px solid var(--color-dark);
-    transition: none;
-  }
 }
 
 .btn-close_black {

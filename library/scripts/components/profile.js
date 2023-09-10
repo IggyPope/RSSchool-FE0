@@ -18,6 +18,9 @@ const buyCardForm = document.forms.buyCardForm;
 const findCardButton = document.querySelector('.dlc__btn-find-card');
 const profileStats = document.querySelector('.dlc__profile-stats');
 
+const buyCardBtn = buyCardForm.querySelector('#buy-card-btn');
+const buyCardFormInputs = Array.from(buyCardForm.querySelectorAll('input'));
+
 const visitsCountDisplay = document.querySelectorAll('.visits-count');
 const booksCountDisplay = document.querySelectorAll('.books-count');
 
@@ -38,7 +41,9 @@ export default function initializeProfileActions() {
   signupForm.addEventListener('submit', registerUser);
 
   buyCardForm.addEventListener('submit', buyCard);
-  buyCardForm.addEventListener('change', handleBuyCardFormChange);
+  buyCardFormInputs.forEach((input) => {
+    input.addEventListener('input', handleBuyCardFormChange);
+  });
 
   findCardForm.addEventListener('submit', checkCard);
 
@@ -103,6 +108,8 @@ function registerUser(event) {
   newUser.initials =
     newUser.firstName.charAt(0).toUpperCase() +
     newUser.lastName.charAt(0).toUpperCase();
+
+  newUser.isCardBought = false;
 
   addUserToLocalStorage(newUser);
 
@@ -234,26 +241,21 @@ function generateCardNumber() {
 }
 
 function handleBuyCardFormChange() {
-  const buyCardBtn = buyCardForm.querySelector('#buy-card-btn');
-  const buyCardFormInputs = Array.from(buyCardForm.querySelectorAll('input'));
-
   if (buyCardFormInputs.every((input) => input.value)) {
-    buyCardBtn.classList.remove('btn-inactive');
-    buyCardBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      buyCardForm.submit();
-    });
+    buyCardBtn.removeAttribute('disabled');
   } else {
-    buyCardBtn.classList.add('btn-inactive');
-    buyCardBtn.removeEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      buyCardForm.submit();
-    });
+    buyCardBtn.setAttribute('disabled', true);
   }
 }
 
 function buyCard(event) {
   event.preventDefault();
+
+  if (buyCardFormInputs.every((input) => input.validity.valid)) {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    currentUser.isCardBought = true;
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+    closeModal();
+  }
 }
