@@ -125,18 +125,24 @@ function registerUser(event) {
 
   newUser.isCardBought = false;
 
-  addUserToLocalStorage(newUser);
-
-  authenticateUser(newUser.cardNumber, newUser.password) && closeModal();
-  event.target.reset();
+  if (addUserToLocalStorage(newUser)) {
+    authenticateUser(newUser.cardNumber, newUser.password) && closeModal();
+    event.target.reset();
+  } else {
+    alert('This email is already in use!');
+  }
 }
 
 function addUserToLocalStorage(user) {
   let storedUsers = JSON.parse(localStorage.getItem('iggyPope-users')) || [];
 
-  storedUsers.push(user);
-
-  localStorage.setItem('iggyPope-users', JSON.stringify(storedUsers));
+  if (storedUsers.find((storedUser) => storedUser.email === user.email)) {
+    return false;
+  } else {
+    storedUsers.push(user);
+    localStorage.setItem('iggyPope-users', JSON.stringify(storedUsers));
+    return true;
+  }
 }
 
 function authenticateUser(id, password) {
