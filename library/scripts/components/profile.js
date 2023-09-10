@@ -352,6 +352,7 @@ function buyCard(event) {
     localStorage.setItem('iggyPope-currentUser', JSON.stringify(currentUser));
 
     closeModal();
+    event.target.reset();
   }
 }
 
