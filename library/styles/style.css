@@ -137,28 +137,10 @@ main {
   }
 }
 
-.btn-inactive {
-  background-color: var(--color-white);
+.btn-inactive:disabled {
   border: 1px solid var(--color-dark);
-  border-radius: 2px;
   color: var(--color-dark);
-  text-align: center;
-  font-family: var(--font-inter);
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1px;
   cursor: default;
-  transition: none;
-}
-
-@media (hover: hover) {
-  .btn-inactive:hover:not(:disabled) {
-    background-color: initial;
-    border: 1px solid var(--color-dark);
-    transition: none;
-  }
 }
 
 .btn-close_black {
@@ -559,7 +541,7 @@ main {
   transform: rotate(180deg);
 }
 
-@media (hover: hover) and (min-width: 1457px),
+@media (hover: hover) and (min-width: 1440px),
 (hover: none) and (min-width: 1440px) {
   .carousel__caret {
     display: none;
@@ -574,7 +556,7 @@ main {
   gap: 40px;
 }
 
-@media (hover: hover) and (max-width: 1456px),
+@media (hover: hover) and (max-width: 1439px),
 (hover: none) and (max-width: 1439px) {
   .carousel__container {
     width: 450px;
@@ -631,12 +613,15 @@ main {
   }
 }
 
-.carousel-pagination__button[aria-current="true"]::before {
+.carousel-pagination__button[aria-current="true"] {
   cursor: default;
+}
+
+.carousel-pagination__button[aria-current="true"]::before {
   background-color: var(--color-gold);
 }
 
-@media (hover: hover) and (min-width: 1457px),
+@media (hover: hover) and (min-width: 1440px),
 (hover: none) and (min-width: 1440px) {
   .carousel-pagination__button:nth-child(n+4) {
     display: none;
@@ -1575,6 +1560,10 @@ main {
   letter-spacing: 2px;
   text-transform: capitalize;
   text-wrap: nowrap;
+}
+
+.modal-profile__book[disabled=true] {
+  display: none;
 }
 
 .modal-profile__card-number {

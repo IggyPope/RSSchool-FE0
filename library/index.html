@@ -512,10 +512,7 @@
 
           <h4 class="rented-books__heading">Rented books</h4>
 
-          <ul class="modal-profile__rented-books">
-            <li class="modal-profile__book">The Last Queen, Clive Irving</li>
-            <li class="modal-profile__book">Dominicana, Angie Cruz</li>
-          </ul>
+          <ul class="modal-profile__rented-books"></ul>
 
           <p class="modal-profile__card-number">
             Card number <button class="btn-reset card-number__display modal-profile__card-btn btn-tooltip"></button>
@@ -524,7 +521,7 @@
       </div>
     </div>
 
-    <div id="modal-buyCard" class="modal modal__buy-card modal_active">
+    <div id="modal-buyCard" class="modal modal__buy-card">
       <button class="btn-reset btn-close_white modal-profile__btn-close modal__btn-close">
         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 17L17 2" stroke-width="3" />
@@ -540,12 +537,12 @@
 
           <div class="modal__input-group">
             <label for="bank-card-number" class="modal__label">Bank card number</label>
-            <input id="bank-card-number" type="text" class="modal__input" name="bankCard" minlength="16" maxlength="16"
-              pattern="[0-9]{16}" required>
+            <input id="bank-card-number" type="text" class="modal__input" name="bankCard" minlength="16" maxlength="19"
+              pattern="[0-9\s]{16,19}" required>
             <label for="buy-card__exp-month" class="modal__label">Expiration code</label>
             <div class="exp-code-wrapper">
               <input id="buy-card__exp-month" type="text" class="modal__input input-w45" name="expMonth" minlength="1"
-                maxlength="2" pattern="[0-9]{1,2}" required>
+                maxlength="2" pattern="[0-9]{2}" required>
               <input id="buy-card__exp-year" type="text" class="modal__input input-w45" name="expYear" minlength="2"
                 maxlength="2" pattern="[0-9]{2}" required>
             </div>
@@ -557,13 +554,13 @@
             <label for="buy-card__name" class="modal__label">Cardholder name</label>
             <input id="buy-card__name" type="text" class="modal__input" name="cardholderName" required>
             <label for="buy-card__zip" class="modal__label">Postal code</label>
-            <input id="buy-card__zip" type="text" class="modal__input" name="zip" pattern="[0-9]{4,8}" required>
+            <input id="buy-card__zip" type="text" class="modal__input" name="zip" pattern="[0-9]" required>
             <label for="buy-card__city" class="modal__label">City / Town</label>
             <input id="buy-card__city" type="text" class="modal__input" name="city" required>
           </div>
 
           <div class="modal-buy-card__footer">
-            <button id="buy-card-btn" class="btn btn-auth btn-inactive" type="submit">Buy</button>
+            <button id="buy-card-btn" class="btn btn-auth btn-inactive" type="submit" disabled>Buy</button>
             <span class="modal-buy-card__price">$ 25.00</span>
           </div>
         </form>

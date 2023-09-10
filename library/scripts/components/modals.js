@@ -1,11 +1,16 @@
+import { buyBook } from './profile.js';
+
 const modalOverlay = document.querySelector('#modal-overlay');
 
-let currentlyOpenModal = null;
+let currentlyOpenModal = document.querySelector('.modal_active');
 
 const modalInvokeButtons = document.querySelectorAll('.btn-modal-invoke');
 const modalCloseButtons = document.querySelectorAll('.modal__btn-close');
 
 const cardNumberButton = document.querySelector('.modal-profile__card-btn');
+
+const buyCardModal = document.querySelector('#modal-buyCard');
+const loginModal = document.querySelector('#modal-login');
 
 export default function initializeModals() {
   modalInvokeButtons.forEach((button) => {
@@ -24,6 +29,14 @@ export default function initializeModals() {
   cardNumberButton.addEventListener('click', (e) => {
     e.preventDefault();
     copyButtonTextToClipboard(cardNumberButton);
+  });
+
+  const buyBookButtons = document.querySelectorAll('.book-card__btn-buy');
+
+  buyBookButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      handleBuyBookButtonClick(button);
+    });
   });
 }
 
@@ -56,4 +69,18 @@ function copyButtonTextToClipboard(button) {
   setTimeout(() => {
     button.classList.remove('tooltip-show');
   }, 1000);
+}
+
+function handleBuyBookButtonClick(button) {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+  if (currentUser) {
+    if (currentUser.isCardBought) {
+      buyBook(button);
+    } else {
+      openModal(buyCardModal);
+    }
+  } else {
+    openModal(loginModal);
+  }
 }
