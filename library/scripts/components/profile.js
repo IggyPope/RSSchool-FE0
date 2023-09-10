@@ -47,7 +47,7 @@ export default function initializeProfileActions() {
 
   findCardForm.addEventListener('submit', checkCard);
 
-  let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let currentUser = JSON.parse(localStorage.getItem('iggyPope-currentUser'));
   if (currentUser) {
     authorizeUser(currentUser);
   }
@@ -122,15 +122,15 @@ function registerUser(event) {
 }
 
 function addUserToLocalStorage(user) {
-  let storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+  let storedUsers = JSON.parse(localStorage.getItem('iggyPope-users')) || [];
 
   storedUsers.push(user);
 
-  localStorage.setItem('users', JSON.stringify(storedUsers));
+  localStorage.setItem('iggyPope-users', JSON.stringify(storedUsers));
 }
 
 function authenticateUser(id, password) {
-  let storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+  let storedUsers = JSON.parse(localStorage.getItem('iggyPope-users')) || [];
   let user = null;
 
   if (id.includes('@')) {
@@ -151,7 +151,7 @@ function authenticateUser(id, password) {
 function authorizeUser(user) {
   user.visits += 1;
 
-  localStorage.setItem('currentUser', JSON.stringify(user));
+  localStorage.setItem('iggyPope-currentUser', JSON.stringify(user));
 
   profileIconButtons.item(1).innerHTML = user.initials;
   profileIconButtons
@@ -195,8 +195,8 @@ function authorizeUser(user) {
 }
 
 function logoutUser() {
-  let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-  let storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+  let currentUser = JSON.parse(localStorage.getItem('iggyPope-currentUser'));
+  let storedUsers = JSON.parse(localStorage.getItem('iggyPope-users')) || [];
 
   storedUsers.forEach((user, index) => {
     if (user.cardNumber === currentUser.cardNumber) {
@@ -205,8 +205,8 @@ function logoutUser() {
   });
 
   storedUsers.push(currentUser);
-  localStorage.setItem('users', JSON.stringify(storedUsers));
-  localStorage.removeItem('currentUser');
+  localStorage.setItem('iggyPope-users', JSON.stringify(storedUsers));
+  localStorage.removeItem('iggyPope-currentUser');
 
   profileIconButtons.item(1).innerHTML = '';
   profileIconButtons.item(1).removeAttribute('title');
@@ -278,7 +278,7 @@ function checkCard(event) {
 }
 
 function getUserByNameAndCardNumber(name, cardNumber) {
-  let storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+  let storedUsers = JSON.parse(localStorage.getItem('iggyPope-users')) || [];
 
   const [firstName, lastName] = name.split(' ');
 
@@ -310,28 +310,28 @@ function buyCard(event) {
   event.preventDefault();
 
   if (buyCardFormInputs.every((input) => input.validity.valid)) {
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    let currentUser = JSON.parse(localStorage.getItem('iggyPope-currentUser'));
     currentUser.isCardBought = true;
-    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    localStorage.setItem('iggyPope-currentUser', JSON.stringify(currentUser));
 
     closeModal();
   }
 }
 
 export function buyBook(button) {
-  let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let currentUser = JSON.parse(localStorage.getItem('iggyPope-currentUser'));
   let books = currentUser.books;
 
   books.push(+button.dataset.bookId);
 
-  localStorage.setItem('currentUser', JSON.stringify(currentUser));
+  localStorage.setItem('iggyPope-currentUser', JSON.stringify(currentUser));
 
   checkRentedBooks();
 }
 
 function checkRentedBooks() {
   const buyBookButtons = document.querySelectorAll('.book-card__btn-buy');
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  const currentUser = JSON.parse(localStorage.getItem('iggyPope-currentUser'));
 
   const rentedBooks = currentUser ? currentUser.books : [];
 
