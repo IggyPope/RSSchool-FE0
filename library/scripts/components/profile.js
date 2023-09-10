@@ -315,6 +315,27 @@ function generateCardNumber() {
 }
 
 function handleBuyCardFormChange() {
+  const validationMessages = {
+    bankCard: 'Please enter a 16-digit number',
+    expMonth: 'Please enter a 2-digit number, e.g. 12',
+    expYear: 'Please enter a 2-digit number, e.g. 23',
+    cvc: 'Please enter a 3-digit number, e.g. 123',
+    cardholderName: 'Please enter a full name, e.g. John Doe',
+    zip: 'Please enter a Postal code, e.g. 12345',
+    city: 'Please enter a city name, e.g. New York',
+  };
+
+  for (let inputName in validationMessages) {
+    const input = buyCardForm.elements[inputName];
+    const errorMessage = validationMessages[inputName];
+
+    if (input.validity.patternMismatch) {
+      input.setCustomValidity(errorMessage);
+    } else {
+      input.setCustomValidity('');
+    }
+  }
+
   if (buyCardFormInputs.every((input) => input.value)) {
     buyCardBtn.removeAttribute('disabled');
   } else {
