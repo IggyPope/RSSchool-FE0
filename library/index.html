@@ -428,7 +428,8 @@
             <label for="register-lastName" class="modal__label">Last name</label>
             <input id="register-lastName" type="text" class="modal__input" name="lastName" required>
             <label for="register-email" class="modal__label">E-mail</label>
-            <input id="register-email" type="email" class="modal__input" name="email" required>
+            <input id="register-email" type="email" class="modal__input" name="email"
+              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
             <label for="register-password" class="modal__label">Password</label>
             <input id="register-password" type="password" class="modal__input" name="password" required minlength="8">
           </div>
