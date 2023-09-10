@@ -9,7 +9,7 @@ const items = document.querySelectorAll('.carousel__item');
 const itemsCount = items.length;
 const itemWidth = document.querySelector('.carousel__item').clientWidth;
 
-let itemsToShow = containerWidth === 1400 ? 3 : 1;
+let itemsToShow = containerWidth === 450 ? 1 : 3;
 let maxPosIndex = itemsCount - itemsToShow;
 
 const track = document.querySelector('.carousel__track');
@@ -88,7 +88,7 @@ function checkButtons() {
 
 function calculateItemsToShow() {
   containerWidth = container.clientWidth;
-  itemsToShow = containerWidth === 1400 ? 3 : 1;
+  itemsToShow = containerWidth === 450 ? 1 : 3;
 }
 
 function calculateMaxPosIndex() {
