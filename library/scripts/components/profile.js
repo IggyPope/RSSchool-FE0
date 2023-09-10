@@ -51,6 +51,9 @@ export default function initializeProfileActions() {
   if (currentUser) {
     authorizeUser(currentUser);
   }
+
+  const logoutBtn = profileMenuLinks[3];
+  logoutBtn.addEventListener('click', logoutUser);
 }
 
 function toggleProfileActionsMenu(event) {
@@ -82,9 +85,10 @@ function loginUser(event) {
   user.id = formData.get('id');
   user.password = formData.get('password');
 
-  authenticateUser(user.id, user.password);
-
-  closeModal();
+  if (authenticateUser(user.id, user.password)) {
+    closeModal();
+    event.target.reset();
+  }
 }
 
 function registerUser(event) {
@@ -113,9 +117,7 @@ function registerUser(event) {
 
   addUserToLocalStorage(newUser);
 
-  authenticateUser(newUser.cardNumber, newUser.password);
-
-  closeModal();
+  authenticateUser(newUser.cardNumber, newUser.password) && closeModal();
 }
 
 function addUserToLocalStorage(user) {
@@ -138,8 +140,10 @@ function authenticateUser(id, password) {
 
   if (user && user.password === password) {
     authorizeUser(user);
+    return true;
   } else {
     alert('Wrong credentials!');
+    return false;
   }
 }
 
@@ -181,6 +185,60 @@ function authorizeUser(user) {
 
   findCardButton.classList.add('display-none');
   profileStats.classList.remove('display-none');
+
+  dlcGetCardSections.forEach((section) =>
+    section.classList.toggle('display-none')
+  );
+
+  checkRentedBooks();
+}
+
+function logoutUser() {
+  let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  let storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+  storedUsers.forEach((user, index) => {
+    if (user.cardNumber === currentUser.cardNumber) {
+      storedUsers.splice(index, 1);
+    }
+  });
+
+  storedUsers.push(currentUser);
+  localStorage.setItem('users', JSON.stringify(storedUsers));
+  localStorage.removeItem('currentUser');
+
+  profileIconButtons.item(1).innerHTML = '';
+  profileIconButtons.item(1).removeAttribute('title');
+
+  modalProfileIcon.innerHTML = '';
+  modalProfileName.innerHTML = '';
+
+  cardNumberDisplays.forEach((element) => {
+    element.textContent = '';
+  });
+
+  profileMenuHeading.innerHTML = 'Profile';
+  profileMenuHeading.removeAttribute('style');
+
+  profileIconButtons.forEach((button) => {
+    button.classList.toggle('profile-btn_disabled');
+  });
+
+  profileMenuLinks.forEach((link) => {
+    link.classList.toggle('profile-menu__link_disabled');
+  });
+
+  dlcSectionSubHeading.innerHTML = 'Find your Library card';
+
+  findCardForm.elements.readerName.value = '';
+  findCardForm.elements.cardNumber.value = '';
+
+  visitsCountDisplay.forEach((display) => {
+    display.innerHTML = '';
+  });
+
+  findCardButton.classList.remove('display-none');
+  profileStats.classList.add('display-none');
 
   dlcGetCardSections.forEach((section) =>
     section.classList.toggle('display-none')
@@ -265,8 +323,6 @@ export function buyBook(button) {
 
   localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
-  console.log(`Book #${button.dataset.bookId} bought`);
-
   checkRentedBooks();
 }
 
@@ -274,7 +330,7 @@ function checkRentedBooks() {
   const buyBookButtons = document.querySelectorAll('.book-card__btn-buy');
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-  const rentedBooks = currentUser.books || [];
+  const rentedBooks = currentUser ? currentUser.books : [];
 
   buyBookButtons.forEach((button) => {
     if (rentedBooks.includes(+button.dataset.bookId)) {
@@ -287,7 +343,7 @@ function checkRentedBooks() {
   });
 
   booksCountDisplay.forEach((display) => {
-    display.innerText = currentUser.books.length;
+    display.innerText = currentUser ? currentUser.books.length : 0;
   });
 
   const rentedBooksList = document.querySelectorAll('.modal-profile__book');
