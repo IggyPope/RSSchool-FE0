@@ -296,7 +296,7 @@ function getUserByNameAndCardNumber(name, cardNumber) {
     (user) =>
       user.firstName.toLowerCase() === firstName &&
       user.lastName.toLowerCase() === lastName &&
-      user.cardNumber === cardNumber
+      user.cardNumber === cardNumber.toUpperCase()
   );
 }
 
