@@ -1540,8 +1540,8 @@ main {
 
 .modal-profile__rented-books {
   width: 390px;
-  height: 67px;
-  padding-left: 28px;
+  height: 69px;
+  padding-left: 30px;
   display: flex;
   flex-flow: column nowrap;
   gap: 10px;
@@ -1568,6 +1568,7 @@ main {
 }
 
 .modal-profile__card-number {
+  margin-top: -9px;
   color: var(--color-dark);
   font-family: var(--font-inter);
   font-size: 20px;
