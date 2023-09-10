@@ -103,6 +103,16 @@ function registerUser(event) {
     newUser[pair[0]] = pair[1];
   }
 
+  let firstName = newUser.firstName;
+  newUser.firstName =
+    firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
+
+  let lastName = newUser.lastName;
+  newUser.lastName =
+    lastName[0].toUpperCase() + lastName.slice(1).toLowerCase();
+
+  newUser.email = newUser.email.toLowerCase();
+
   newUser.cardNumber = generateCardNumber();
 
   newUser.visits = 0;
@@ -134,9 +144,9 @@ function authenticateUser(id, password) {
   let user = null;
 
   if (id.includes('@')) {
-    user = storedUsers.find((user) => user.email === id);
+    user = storedUsers.find((user) => user.email === id.toLowerCase());
   } else {
-    user = storedUsers.find((user) => user.cardNumber === id);
+    user = storedUsers.find((user) => user.cardNumber === id.toUpperCase());
   }
 
   if (user && user.password === password) {
@@ -177,7 +187,7 @@ function authorizeUser(user) {
 
   dlcSectionSubHeading.innerHTML = 'Your Library card';
 
-  findCardForm.elements.readerName.value = user.firstName + ' ' + user.lastName;
+  findCardForm.elements.readerName.value = `${user.firstName} ${user.lastName}`;
   findCardForm.elements.cardNumber.value = user.cardNumber;
 
   visitsCountDisplay.forEach((display) => {
@@ -280,12 +290,12 @@ function checkCard(event) {
 function getUserByNameAndCardNumber(name, cardNumber) {
   let storedUsers = JSON.parse(localStorage.getItem('iggyPope-users')) || [];
 
-  const [firstName, lastName] = name.split(' ');
+  const [firstName, lastName] = name.toLowerCase().split(' ');
 
   return storedUsers.find(
     (user) =>
-      user.firstName === firstName &&
-      user.lastName === lastName &&
+      user.firstName.toLowerCase() === firstName &&
+      user.lastName.toLowerCase() === lastName &&
       user.cardNumber === cardNumber
   );
 }
