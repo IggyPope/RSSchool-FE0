@@ -88,5 +88,5 @@ const results = [
 ];
 
 export default function printSelfCheck() {
-  console.log(results.join('\n'));
+  console.log(results.join('\n - '));
 }

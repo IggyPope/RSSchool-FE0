@@ -8,7 +8,7 @@ import loadBooksContent from './components/books.js';
 
 loadBooksContent();
 initializeBurger();
-// printSelfCheck();
+printSelfCheck();
 initializeCarousel();
 initializeFavoritesSlider();
 initializeProfileActions();
