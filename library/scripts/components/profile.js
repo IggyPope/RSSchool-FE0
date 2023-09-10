@@ -103,6 +103,16 @@ function registerUser(event) {
     newUser[pair[0]] = pair[1];
   }
 
+  let firstName = newUser.firstName;
+  newUser.firstName =
+    firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
+
+  let lastName = newUser.lastName;
+  newUser.lastName =
+    lastName[0].toUpperCase() + lastName.slice(1).toLowerCase();
+
+  newUser.email = newUser.email.toLowerCase();
+
   newUser.cardNumber = generateCardNumber();
 
   newUser.visits = 0;
@@ -115,18 +125,24 @@ function registerUser(event) {
 
   newUser.isCardBought = false;
 
-  addUserToLocalStorage(newUser);
-
-  authenticateUser(newUser.cardNumber, newUser.password) && closeModal();
-  event.target.reset();
+  if (addUserToLocalStorage(newUser)) {
+    authenticateUser(newUser.cardNumber, newUser.password) && closeModal();
+    event.target.reset();
+  } else {
+    alert('This email is already in use!');
+  }
 }
 
 function addUserToLocalStorage(user) {
   let storedUsers = JSON.parse(localStorage.getItem('iggyPope-users')) || [];
 
-  storedUsers.push(user);
-
-  localStorage.setItem('iggyPope-users', JSON.stringify(storedUsers));
+  if (storedUsers.find((storedUser) => storedUser.email === user.email)) {
+    return false;
+  } else {
+    storedUsers.push(user);
+    localStorage.setItem('iggyPope-users', JSON.stringify(storedUsers));
+    return true;
+  }
 }
 
 function authenticateUser(id, password) {
@@ -134,9 +150,9 @@ function authenticateUser(id, password) {
   let user = null;
 
   if (id.includes('@')) {
-    user = storedUsers.find((user) => user.email === id);
+    user = storedUsers.find((user) => user.email === id.toLowerCase());
   } else {
-    user = storedUsers.find((user) => user.cardNumber === id);
+    user = storedUsers.find((user) => user.cardNumber === id.toUpperCase());
   }
 
   if (user && user.password === password) {
@@ -177,7 +193,7 @@ function authorizeUser(user) {
 
   dlcSectionSubHeading.innerHTML = 'Your Library card';
 
-  findCardForm.elements.readerName.value = user.firstName + ' ' + user.lastName;
+  findCardForm.elements.readerName.value = `${user.firstName} ${user.lastName}`;
   findCardForm.elements.cardNumber.value = user.cardNumber;
 
   visitsCountDisplay.forEach((display) => {
@@ -280,13 +296,13 @@ function checkCard(event) {
 function getUserByNameAndCardNumber(name, cardNumber) {
   let storedUsers = JSON.parse(localStorage.getItem('iggyPope-users')) || [];
 
-  const [firstName, lastName] = name.split(' ');
+  const [firstName, lastName] = name.toLowerCase().split(' ');
 
   return storedUsers.find(
     (user) =>
-      user.firstName === firstName &&
-      user.lastName === lastName &&
-      user.cardNumber === cardNumber
+      user.firstName.toLowerCase() === firstName &&
+      user.lastName.toLowerCase() === lastName &&
+      user.cardNumber === cardNumber.toUpperCase()
   );
 }
 
@@ -299,6 +315,27 @@ function generateCardNumber() {
 }
 
 function handleBuyCardFormChange() {
+  const validationMessages = {
+    bankCard: 'Please enter a 16-digit number',
+    expMonth: 'Please enter a 2-digit number, e.g. 12',
+    expYear: 'Please enter a 2-digit number, e.g. 23',
+    cvc: 'Please enter a 3-digit number, e.g. 123',
+    cardholderName: 'Please enter a full name, e.g. John Doe',
+    zip: 'Please enter a Postal code, e.g. 12345',
+    city: 'Please enter a city name, e.g. New York',
+  };
+
+  for (let inputName in validationMessages) {
+    const input = buyCardForm.elements[inputName];
+    const errorMessage = validationMessages[inputName];
+
+    if (input.validity.patternMismatch) {
+      input.setCustomValidity(errorMessage);
+    } else {
+      input.setCustomValidity('');
+    }
+  }
+
   if (buyCardFormInputs.every((input) => input.value)) {
     buyCardBtn.removeAttribute('disabled');
   } else {
