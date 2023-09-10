@@ -541,7 +541,7 @@ main {
   transform: rotate(180deg);
 }
 
-@media (hover: hover) and (min-width: 1457px),
+@media (hover: hover) and (min-width: 1440px),
 (hover: none) and (min-width: 1440px) {
   .carousel__caret {
     display: none;
@@ -556,7 +556,7 @@ main {
   gap: 40px;
 }
 
-@media (hover: hover) and (max-width: 1456px),
+@media (hover: hover) and (max-width: 1439px),
 (hover: none) and (max-width: 1439px) {
   .carousel__container {
     width: 450px;
@@ -618,7 +618,7 @@ main {
   background-color: var(--color-gold);
 }
 
-@media (hover: hover) and (min-width: 1457px),
+@media (hover: hover) and (min-width: 1440px),
 (hover: none) and (min-width: 1440px) {
   .carousel-pagination__button:nth-child(n+4) {
     display: none;
