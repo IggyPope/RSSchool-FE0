@@ -13,7 +13,21 @@
 <body>
   <audio src="./assets/songs/track1.mp3" id="track"></audio>
   <div class="player">
-    <button id="play">play</button>
+    <div class="player__track-art"></div>
+    <div class="player__controls-box">
+      <span class="player__artist">K.Flay</span>
+      <span class="player__track">High Enough</span>
+      <div class="player__track-progress">
+        <input type="range" min="0" max="100" value="10">
+        <span class="player__track-length player__current-progress">0:00</span>
+        <span class="player__track-length">3:05</span>
+      </div>
+      <div class="player__controls-buttons">
+        <div class="player__btn-prev btn"></div>
+        <div role="button" id="btn-play-pause" class="player__btn-play-pause btn"></div>
+        <div class="player__btn-next btn"></div>
+      </div>
+    </div>
   </div>
   <div class="background-blur"></div>
   <script src="./index.js"></script>

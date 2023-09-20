@@ -1,4 +1,4 @@
-const playBtn = document.querySelector('#play');
+const playBtn = document.querySelector('#btn-play-pause');
 const audio = document.querySelector('audio');
 
 let isPlaying = false;
