@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "author": "K.Flay",
-    "track": "High Enough"
+    "artist": "K.Flay",
+    "title": "High Enough"
   },
   {
     "id": 2,
-    "author": "Royal Blood",
-    "track": "I Only Lie When I Love You"
+    "artist": "Royal Blood",
+    "title": "I Only Lie When I Love You"
   },
   {
     "id": 3,
-    "author": "Muse",
-    "track": "Psycho"
+    "artist": "Muse",
+    "title": "Psycho"
   },
   {
     "id": 4,
-    "author": "Mumford & Sons",
-    "track": "Woman"
+    "artist": "Mumford & Sons",
+    "title": "Woman"
   },
   {
     "id": 5,
-    "author": "Snow Patrol",
-    "track": "Chasing Cars"
+    "artist": "Snow Patrol",
+    "title": "Chasing Cars"
   },
   {
     "id": 6,
-    "author": "George Thorogood",
-    "track": "Bad To The Bone"
+    "artist": "George Thorogood",
+    "title": "Bad To The Bone"
   }
 ]
