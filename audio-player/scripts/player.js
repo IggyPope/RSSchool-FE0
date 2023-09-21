@@ -2,14 +2,25 @@ import tracks from '../assets/data/tracks.json' assert { type: 'json' };
 
 const lblArtist = document.querySelector('#lbl-artist');
 const lblTrack = document.querySelector('#lbl-track');
+const lblCurrentTime = document.querySelector('#lbl-current-time');
+const lblTrackLength = document.querySelector('#lbl-track-length');
+const progressBar = document.querySelector('#progress-bar');
 
 let currentTrack = tracks[0];
 
 let audio = new Audio();
 
+audio.addEventListener('loadeddata', displayTrackProps);
+
 let isPlaying = false;
 
 setTrack(currentTrack);
+
+setInterval(() => {
+  lblCurrentTime.textContent = getTimeFromSeconds(audio.currentTime);
+
+  progressBar.setAttribute('value', (audio.currentTime / audio.duration) * 100);
+}, 500);
 
 function playPause(event) {
   if (isPlaying) {
@@ -57,15 +68,29 @@ function prevTrack() {
 }
 
 function setTrack(track) {
-  lblArtist.textContent = track.artist;
-  lblTrack.textContent = track.title;
+  audio.src = `./assets/audio/track${track.id}.mp3`;
+}
+
+function displayTrackProps() {
+  lblArtist.textContent = currentTrack.artist;
+  lblTrack.textContent = currentTrack.title;
 
   document.documentElement.style.setProperty(
     '--track-image',
-    `url(./assets/images/cover${track.id}.jpg)`
+    `url(./assets/images/cover${currentTrack.id}.jpg)`
   );
 
-  audio.src = `./assets/audio/track${track.id}.mp3`;
+  lblCurrentTime.textContent = getTimeFromSeconds(audio.currentTime);
+  lblTrackLength.textContent = getTimeFromSeconds(audio.duration);
+
+  isPlaying && audio.play();
+}
+
+function getTimeFromSeconds(seconds) {
+  const minutes = String(Math.floor(seconds / 60));
+  const secs = String(Math.floor(seconds % 60)).padStart(2, '0');
+
+  return `${minutes}:${secs}`;
 }
 
 function getTrackById(id) {
