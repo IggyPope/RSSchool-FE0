@@ -34,8 +34,10 @@ body {
 
 .background-blur {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   backdrop-filter: blur(15px);
   z-index: -1;
 }
@@ -168,7 +170,6 @@ input[type="range"]::-moz-range-progress {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-clip: border-box;
 
   transition: transform 0.1s linear;
 }
@@ -187,7 +188,6 @@ input[type="range"]::-moz-range-progress {
   width: 30px;
   height: 30px;
   rotate: 180deg;
-  background-blend-mode: difference;
   background-image: url(./assets/icons/rewind-forward-circle.svg);
 }
 
@@ -206,4 +206,33 @@ input[type="range"]::-moz-range-progress {
 
 .paused {
   background-image: url(./assets/icons/play-circle.svg);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 2rem;
+  font-weight: 700;
+  box-shadow: 0px 0px 15px 0px var(--accent-color);
+
+  background-color: rgba(155, 155, 155, 0.5);
+}
+
+.footer__github {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+@media (hover: hover) {
+  .footer__github:hover {
+    color: var(--accent-color);
+    transition: 0.5s color linear;
+  }
 }
