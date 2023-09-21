@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "artist": "K.Flay",
+    "title": "High Enough"
+  },
+  {
+    "id": 2,
+    "artist": "Royal Blood",
+    "title": "I Only Lie When I Love You"
+  },
+  {
+    "id": 3,
+    "artist": "Muse",
+    "title": "Psycho"
+  },
+  {
+    "id": 4,
+    "artist": "Mumford & Sons",
+    "title": "Woman"
+  },
+  {
+    "id": 5,
+    "artist": "Snow Patrol",
+    "title": "Chasing Cars"
+  },
+  {
+    "id": 6,
+    "artist": "George Thorogood",
+    "title": "Bad To The Bone"
+  }
+]
