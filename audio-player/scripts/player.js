@@ -11,26 +11,28 @@ let currentTrack = tracks[0];
 let audio = new Audio();
 
 audio.addEventListener('loadeddata', displayTrackProps);
+audio.addEventListener('ended', nextTrack);
+audio.addEventListener('timeupdate', () => {
+  lblCurrentTime.textContent = getTimeFromSeconds(audio.currentTime);
+
+  progressBar.value = (audio.currentTime / audio.duration) * 100;
+});
+
+progressBar.addEventListener('input', (e) => {
+  audio.currentTime = (e.target.value / 100) * audio.duration;
+});
 
 let isPlaying = false;
 
 setTrack(currentTrack);
 
-setInterval(() => {
-  lblCurrentTime.textContent = getTimeFromSeconds(audio.currentTime);
-
-  progressBar.setAttribute('value', (audio.currentTime / audio.duration) * 100);
-}, 500);
-
 function playPause(event) {
   if (isPlaying) {
     audio.pause();
-    event.target.style.backgroundImage =
-      "url('./assets/icons/play-circle.svg')";
+    event.target.classList.add('paused');
   } else {
     audio.play();
-    event.target.style.backgroundImage =
-      "url('./assets/icons/pause-circle.svg')";
+    event.target.classList.remove('paused');
   }
   isPlaying = !isPlaying;
 }
@@ -82,6 +84,8 @@ function displayTrackProps() {
 
   lblCurrentTime.textContent = getTimeFromSeconds(audio.currentTime);
   lblTrackLength.textContent = getTimeFromSeconds(audio.duration);
+
+  progressBar.value = audio.currentTime;
 
   isPlaying && audio.play();
 }

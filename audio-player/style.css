@@ -197,9 +197,13 @@ input[type="range"]::-moz-range-progress {
   background-image: url(./assets/icons/rewind-forward-circle.svg);
 }
 
-.player__btn-play-pause {
+.player__btn-play {
   width: 40px;
   height: 40px;
 
+  background-image: url(./assets/icons/pause-circle.svg);
+}
+
+.paused {
   background-image: url(./assets/icons/play-circle.svg);
 }
