@@ -5,10 +5,12 @@ const lblTrack = document.querySelector('#lbl-track');
 const lblCurrentTime = document.querySelector('#lbl-current-time');
 const lblTrackLength = document.querySelector('#lbl-track-length');
 const progressBar = document.querySelector('#progress-bar');
+const volumeBar = document.querySelector('#volume-bar');
 
 let currentTrack = tracks[0];
 
 let audio = new Audio();
+audio.volume = 0.75;
 
 audio.addEventListener('loadeddata', displayTrackProps);
 audio.addEventListener('ended', nextTrack);
@@ -20,6 +22,10 @@ audio.addEventListener('timeupdate', () => {
 
 progressBar.addEventListener('input', (e) => {
   audio.currentTime = (e.target.value / 100) * audio.duration;
+});
+
+volumeBar.addEventListener('input', (e) => {
+  audio.volume = (e.target.value / 100);
 });
 
 let isPlaying = false;
@@ -86,6 +92,7 @@ function displayTrackProps() {
   lblTrackLength.textContent = getTimeFromSeconds(audio.duration);
 
   progressBar.value = audio.currentTime;
+  volumeBar.value = audio.volume * 100;
 
   isPlaying && audio.play();
 }
@@ -101,4 +108,9 @@ function getTrackById(id) {
   return tracks.find((track) => track.id === id);
 }
 
-export { playPause, nextTrack, prevTrack, setTrack };
+function toggleMute(event) {
+  audio.muted = !audio.muted;
+  event.target.classList.toggle('mute');
+}
+
+export { playPause, nextTrack, prevTrack, setTrack, toggleMute };

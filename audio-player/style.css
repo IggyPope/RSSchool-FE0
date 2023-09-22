@@ -172,13 +172,16 @@ input[type="range"]::-moz-range-progress {
 }
 
 .btn {
-  cursor: pointer;
+  width: 30px;
+  height: 30px;
 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   transition: transform 0.1s linear;
+
+  cursor: pointer;
 }
 
 @media (hover: hover) {
@@ -192,15 +195,12 @@ input[type="range"]::-moz-range-progress {
 }
 
 .player__btn-prev {
-  width: 30px;
-  height: 30px;
+
   rotate: 180deg;
   background-image: url(./assets/icons/rewind-forward-circle.svg);
 }
 
 .player__btn-next {
-  width: 30px;
-  height: 30px;
   background-image: url(./assets/icons/rewind-forward-circle.svg);
 }
 
@@ -215,9 +215,17 @@ input[type="range"]::-moz-range-progress {
   background-image: url(./assets/icons/play-circle.svg);
 }
 
+.player__btn-volume {
+  margin-left: auto;
+  margin-right: 5px;
+  background-image: url(./assets/icons/volume.svg);
+}
+
+.mute {
+  background-image: url(./assets/icons/volume-cross.svg);
+}
+
 footer {
-  /* position: absolute; */
-  /* bottom: 0; */
   width: 100%;
   padding: 10px;
 
