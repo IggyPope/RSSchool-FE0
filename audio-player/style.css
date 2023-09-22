@@ -20,7 +20,8 @@ body {
   margin: 0;
 
   display: flex;
-  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: space-between;
   align-items: center;
 
   background-image: var(--track-image);
@@ -30,6 +31,10 @@ body {
   background-blend-mode: normal;
 
   transition: background-image 0.5s ease-in-out;
+}
+
+body::before {
+  content: "";
 }
 
 .background-blur {
@@ -52,6 +57,8 @@ body {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0px 0px 15px 0px var(--accent-color);
+
+  z-index: 10;
 }
 
 .player__track-art {
@@ -209,8 +216,8 @@ input[type="range"]::-moz-range-progress {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  /* position: absolute; */
+  /* bottom: 0; */
   width: 100%;
   padding: 10px;
 
@@ -228,6 +235,10 @@ footer {
 .footer__github {
   color: inherit;
   text-decoration: inherit;
+}
+
+.footer__rss-link {
+  line-height: 0;
 }
 
 @media (hover: hover) {
