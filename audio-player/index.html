@@ -25,14 +25,18 @@
         <div id="btn-prev" class="player__btn-prev btn"></div>
         <div id="btn-play-pause" role="button" class="player__btn-play btn paused"></div>
         <div id="btn-next" class="player__btn-next btn"></div>
+        <div id="btn-mute" class="player__btn-volume btn"></div>
+        <div class="player__volume">
+          <input id="volume-bar" type="range" min="0" max="100" value="75">
+        </div>
       </div>
     </div>
   </div>
   <footer>
     <a class="footer__github" href="https://github.com/IggyPope" target="_blank">IggyPope</a>
     <span class="footer__year">2023</span>
-    <a href="https://rs.school/js-stage0/" target="_blank"><img height="55" src="./assets/icons/rs_school_js.svg"
-        alt="Rolling Scopes School"></a>
+    <a class="footer__rss-link" href="https://rs.school/js-stage0/" target="_blank"><img height="55"
+        src="./assets/icons/rs_school_js.svg" alt="Rolling Scopes School"></a>
   </footer>
   <div class="background-blur"></div>
   <script type="module" src="./scripts/index.js"></script>
