@@ -45,6 +45,13 @@ searchForm.addEventListener('submit', async (e) => {
   renderImages(images);
 });
 
+searchInput.addEventListener('input', async () => {
+  if (searchInput.value === '') {
+    const images = await fetchImages();
+    renderImages(images);
+  }
+});
+
 document.addEventListener('DOMContentLoaded', async () => {
   const images = await fetchImages();
   renderImages(images);
