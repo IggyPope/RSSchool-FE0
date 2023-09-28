@@ -21,8 +21,21 @@ header {
   justify-content: space-between;
 }
 
+.logo {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-svg {
+  height: 39px;
+  fill: #3f8eef;
+}
+
 h1 {
   margin: 0;
+  line-height: 1;
 }
 
 #searchForm {
@@ -34,18 +47,42 @@ h1 {
 #searchInput {
   width: 100%;
   padding: 10px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #3f8eef;
+  border-radius: 35px;
+  transform: translateX(35px);
+  z-index: 1;
+}
+
+#searchInput::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+#searchInput:focus {
+  outline: none;
+  box-shadow: inset 0 0 8px rgba(63, 142, 239, 0.4);
 }
 
 #searchButton {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
+  width: 110px;
+  height: 39px;
+  text-align: right;
+  background-color: #3f8eef;
+  padding: 5px 15px;
   border: none;
-  border-radius: 5px;
+  border-radius: 35px;
   cursor: pointer;
+}
+
+.search-icon {
+  stroke: rgb(239, 239, 254);
+  margin-left: auto;
+}
+
+@media (hover: hover) {
+  #searchButton:hover .search-icon {
+    transform: scale(1.1);
+    transition: 0.3s all;
+  }
 }
 
 #imageContainer {
