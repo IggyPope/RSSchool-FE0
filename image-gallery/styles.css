@@ -15,9 +15,13 @@ a {
 }
 
 body {
+  min-height: 100vh;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
 }
 
 header {
@@ -125,6 +129,8 @@ h1 {
 footer {
   width: 100%;
   padding: var(--padding);
+
+  margin-top: auto;
 
   display: flex;
   justify-content: space-between;
