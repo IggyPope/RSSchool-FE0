@@ -123,7 +123,12 @@ class Game {
 
   saveHighScore(score, date) {
     this.highScore.push({ score, date });
-    this.highScore.sort((a, b) => b.score - a.score);
+    this.highScore.sort((a, b) => {
+      if (+a.score === +b.score) {
+        return Date.parse(b.date) - Date.parse(a.date);
+      }
+      return +b.score - +a.score;
+    });
 
     this.highScore = this.highScore.slice(0, 10);
 
