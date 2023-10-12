@@ -14,11 +14,19 @@ class Game {
       '.score__best-score-value'
     );
 
+    this.score = 0;
+    this.highScore =
+      JSON.parse(localStorage.getItem('iggyPope-highScore')) || [];
+
+    if (this.highScore.length > 0) {
+      this.highScoreContainer.textContent = this.highScore[0].score;
+    }
+
     this.snake = new Snake(10, 10);
 
     this.food = new Food(this.gameSize, this.tileSize);
 
-    this.gameLoopId = setInterval(this.update.bind(this), 1000 / 3);
+    this.gameLoop = setInterval(this.update.bind(this), 1000 / 3);
   }
 
   update() {
@@ -41,8 +49,24 @@ class Game {
           index > 0 && part.x === body[0].x && part.y === body[0].y
       )
     ) {
-      clearInterval(this.gameLoopId);
-      alert(`Game Over!\nYour score is ${this.scoreContainer.textContent}`);
+      clearInterval(this.gameLoop);
+
+      const date = new Date();
+
+      this.saveHighScore(this.scoreContainer.textContent, date);
+
+      alert(
+        `Game Over!\nYour score is ${
+          this.scoreContainer.textContent
+        }\nDate: ${date.toLocaleDateString('en-US', {
+          weekday: 'short',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+        })}`
+      );
     }
   }
 
@@ -54,7 +78,7 @@ class Game {
   drawSnake() {
     this.snake.body.forEach((part, index) => {
       if (index === 0) {
-      this.ctx.fillStyle = 'limegreen';
+        this.ctx.fillStyle = 'limegreen';
       } else {
         this.ctx.fillStyle = 'green';
       }
@@ -82,13 +106,27 @@ class Game {
       this.snake.body[0].x === this.food.x &&
       this.snake.body[0].y === this.food.y
     ) {
-      this.scoreContainer.textContent++;
+      this.score++;
+      this.scoreContainer.textContent = this.score;
+
       this.snake.body.push({
         x: this.food.x,
         y: this.food.y,
       });
+
       this.food = new Food(this.gameSize, this.tileSize);
     }
+  }
+
+  saveHighScore(score, date) {
+    this.highScore.push({ score, date });
+    this.highScore.sort((a, b) => b.score - a.score);
+
+    this.highScore = this.highScore.slice(0, 10);
+
+    this.highScoreContainer.textContent = this.highScore[0].score;
+
+    localStorage.setItem('iggyPope-highScore', JSON.stringify(this.highScore));
   }
 }
 
