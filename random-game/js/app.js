@@ -2,7 +2,7 @@ import game from './Game.js';
 
 const newGameBtn = document.querySelector('#btn-new-game');
 
-newGameBtn.addEventListener('click', () => game.start());
+newGameBtn.addEventListener('click', () => game.restart());
 
 document.addEventListener('keydown', (e) => {
   switch (e.key) {
