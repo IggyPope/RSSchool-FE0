@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./normalize.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./js/app.js" defer></script>
+  <title>Snake</title>
+</head>
+
+<body>
+  <div class="main-container">
+    <header class="header">
+      <h1>Snake</h1>
+      <div class="header__scores">
+        <div class="scores__score-container">Score<div class="score__current-score-value">0</div>
+        </div>
+        <div class="scores__score-container">Best<div class="score__best-score-value">0</div>
+        </div>
+      </div>
+    </header>
+    <main class="game__container">
+      <div class="game__controls">
+        <button id="btn-new-game" class="btn">New game</button>
+        <button id="btn-game-history" class="btn">Game history</button>
+      </div>
+      <div class="game__grid">
+        <canvas id="canvas"></canvas>
+      </div>
+    </main>
+  </div>
+  <footer></footer>
+</body>
+
+</html>
