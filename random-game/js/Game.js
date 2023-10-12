@@ -36,9 +36,10 @@ class Game {
       this.snake.body[0].x > this.gameSize - 1 ||
       this.snake.body[0].y < 0 ||
       this.snake.body[0].y > this.gameSize - 1 ||
-      this.snake.body.some((part, index, body) => {
-        return index > 0 && part.x === body[0].x && part.y === body[0].y;
-      })
+      this.snake.body.some(
+        (part, index, body) =>
+          index > 0 && part.x === body[0].x && part.y === body[0].y
+      )
     ) {
       clearInterval(this.gameLoopId);
       alert(`Game Over!\nYour score is ${this.scoreContainer.textContent}`);
