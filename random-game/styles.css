@@ -67,3 +67,7 @@ h1 {
   justify-content: flex-end;
   gap: 5px;
 }
+
+.game__grid {
+  display: flex;
+}

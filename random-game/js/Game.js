@@ -9,20 +9,40 @@ class Game {
     this.gameSize = 21;
     this.tileSize = this.canvas.width / this.gameSize - 2;
 
+    this.scoreContainer = document.querySelector('.score__current-score-value');
+    this.highScoreContainer = document.querySelector(
+      '.score__best-score-value'
+    );
+
     this.snake = new Snake(10, 10);
-    console.log(this.snake);
 
     this.food = new Food(this.gameSize, this.tileSize);
-    console.log(this.food);
 
-    setInterval(this.update.bind(this), 1000 / 3);
+    this.gameLoopId = setInterval(this.update.bind(this), 1000 / 3);
   }
 
   update() {
     this.drawGround();
     this.snake.move();
+    this.checkGameOver();
     this.drawFood();
+    this.checkFoodCollision();
     this.drawSnake();
+  }
+
+  checkGameOver() {
+    if (
+      this.snake.body[0].x < 0 ||
+      this.snake.body[0].x > this.gameSize - 1 ||
+      this.snake.body[0].y < 0 ||
+      this.snake.body[0].y > this.gameSize - 1 ||
+      this.snake.body.some((part, index, body) => {
+        return index > 0 && part.x === body[0].x && part.y === body[0].y;
+      })
+    ) {
+      clearInterval(this.gameLoopId);
+      alert(`Game Over!\nYour score is ${this.scoreContainer.textContent}`);
+    }
   }
 
   drawGround() {
@@ -51,6 +71,20 @@ class Game {
       this.tileSize
     );
   }
+
+  checkFoodCollision() {
+    if (
+      this.snake.body[0].x === this.food.x &&
+      this.snake.body[0].y === this.food.y
+    ) {
+      this.scoreContainer.textContent++;
+      this.snake.body.push({
+        x: this.food.x,
+        y: this.food.y,
+      });
+      this.food = new Food(this.gameSize, this.tileSize);
+    }
+  }
 }
 
 class Snake {
@@ -63,6 +97,9 @@ class Snake {
   }
 
   move() {
+    for (let i = this.body.length - 1; i > 0; i--) {
+      this.body[i] = { ...this.body[i - 1] };
+    }
     this.body[0].x += this.velocityX;
     this.body[0].y += this.velocityY;
   }
