@@ -98,6 +98,9 @@ class Snake {
 
     this.velocityX = 0;
     this.velocityY = 0;
+
+    this.previousVelocityX = 0;
+    this.previousVelocityY = 0;
   }
 
   move() {
@@ -106,30 +109,33 @@ class Snake {
     }
     this.body[0].x += this.velocityX;
     this.body[0].y += this.velocityY;
+
+    this.previousVelocityX = this.velocityX;
+    this.previousVelocityY = this.velocityY;
   }
 
   changeDirection(direction) {
     switch (direction) {
       case 'up':
-        if (this.velocityY === 1) return;
+        if (this.velocityY === 1 || this.previousVelocityY === 1) return;
         this.velocityX = 0;
         this.velocityY = -1;
         break;
 
       case 'down':
-        if (this.velocityY === -1) return;
+        if (this.velocityY === -1 || this.previousVelocityY === -1) return;
         this.velocityX = 0;
         this.velocityY = 1;
         break;
 
       case 'left':
-        if (this.velocityX === 1) return;
+        if (this.velocityX === 1 || this.previousVelocityX === 1) return;
         this.velocityX = -1;
         this.velocityY = 0;
         break;
 
       case 'right':
-        if (this.velocityX === -1) return;
+        if (this.velocityX === -1 || this.previousVelocityX === -1) return;
         this.velocityX = 1;
         this.velocityY = 0;
         break;
