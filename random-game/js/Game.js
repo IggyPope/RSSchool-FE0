@@ -51,8 +51,12 @@ class Game {
   }
 
   drawSnake() {
-    this.snake.body.forEach((part) => {
+    this.snake.body.forEach((part, index) => {
+      if (index === 0) {
       this.ctx.fillStyle = 'limegreen';
+      } else {
+        this.ctx.fillStyle = 'green';
+      }
       this.ctx.fillRect(
         part.x * (this.tileSize + 2) + 1,
         part.y * (this.tileSize + 2) + 1,
