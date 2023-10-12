@@ -29,7 +29,12 @@ class Game {
 
     this.food = new Food(this.gameSize);
 
-    this.gameLoop = setInterval(this.update.bind(this), 1000 / 3);
+    this.speedMultiplier = 1;
+
+    this.gameLoop = setInterval(
+      this.update.bind(this),
+      1000 / (3 * this.speedMultiplier)
+    );
   }
 
   update() {
@@ -112,6 +117,8 @@ class Game {
       this.score++;
       this.scoreContainer.textContent = this.score;
 
+      this.increaseSpeed();
+
       this.snake.body.push({
         x: this.food.x,
         y: this.food.y,
@@ -119,6 +126,15 @@ class Game {
 
       this.food = new Food(this.gameSize, this.tileSize);
     }
+  }
+
+  increaseSpeed() {
+    clearInterval(this.gameLoop);
+    this.speedMultiplier += 0.1 / Math.sqrt(this.snake.body.length);
+    this.gameLoop = setInterval(
+      this.update.bind(this),
+      1000 / (3 * this.speedMultiplier)
+    );
   }
 
   saveHighScore(score, date) {
