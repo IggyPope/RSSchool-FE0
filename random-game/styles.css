@@ -1,5 +1,5 @@
 :root {
-  --main-gap: 1rem;
+  --main-gap: 5px;
   --game-size: 500px;
 }
 
@@ -20,7 +20,7 @@ body {
 
 .main-container {
   width: var(--game-size);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
@@ -36,7 +36,7 @@ body {
 h1 {
   margin: 0;
   color: #776e65;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
 .header__scores {
@@ -69,6 +69,10 @@ h1 {
   color: #4b443d;
   font-size: 0.9rem;
   font-weight: 500;
+
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
 }
 
 .game__controls {
@@ -89,7 +93,6 @@ h1 {
   width: var(--game-size);
   height: var(--game-size);
   display: flex;
-  flex-shrink: 0;
   background-color: transparent;
   perspective: 1000px;
 }
@@ -144,7 +147,9 @@ canvas {
   border-bottom: 2px dotted #776e65;
 }
 
-footer {
+.main__footer {
+  height: 50px;
+
   color: #000000;
   font-size: 2rem;
   font-weight: 600;
@@ -155,7 +160,6 @@ footer {
   align-items: center;
 }
 
-.footer__github {
-  text-decoration: none;
-  color: inherit;
+.footer__icon {
+  height: 50px;
 }
