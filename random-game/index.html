@@ -22,12 +22,35 @@
         </div>
       </div>
     </header>
-    <div class="game__controls">
-      <button id="btn-new-game" class="btn">New game</button>
-      <button id="btn-game-history" class="btn">Game history</button>
+    <div class="game__sub-header">
+      <div class="game__description">
+        Control the snake with arrow keys.<br><br>
+        Your aim is to eat as much apples as you can before hitting the wall or your own tail. Have fun! ;)
+      </div>
+      <div class="game__controls">
+        <button id="btn-new-game" class="btn">New game</button>
+        <button id="btn-game-history" class="btn">High score</button>
+      </div>
     </div>
     <main class="game__container">
-      <canvas id="canvas"></canvas>
+      <div class="game__container-inner">
+        <canvas id="canvas"></canvas>
+        <div class="game__history">
+          <h2 class="game__history-header">Top 10 games:</h2>
+          <ol class="game__history-list">
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+          </ol>
+        </div>
+      </div>
     </main>
     <footer>
       <a class="footer__gh-link" href="https://github.com/IggyPope" target="_blank"><img height="55"

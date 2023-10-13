@@ -1,8 +1,14 @@
 import game from './Game.js';
 
 const newGameBtn = document.querySelector('#btn-new-game');
-
 newGameBtn.addEventListener('click', () => game.restart());
+
+const gameHistoryBtn = document.querySelector('#btn-game-history');
+const gameContainer = document.querySelector('.game__container-inner');
+
+gameHistoryBtn.addEventListener('click', () =>
+  gameContainer.classList.toggle('rotate')
+);
 
 document.addEventListener('keydown', (e) => {
   switch (e.key) {

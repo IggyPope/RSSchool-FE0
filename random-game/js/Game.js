@@ -25,6 +25,8 @@ class Game {
       this.highScoreContainer.textContent = this.highScore[0].score;
     }
 
+    this.fillHighScoreTable();
+
     this.snake = new Snake(10, 10);
 
     this.food = new Food(this.gameSize);
@@ -60,6 +62,8 @@ class Game {
     } else {
       this.highScoreContainer.textContent = 0;
     }
+
+    this.fillHighScoreTable();
 
     this.snake = new Snake(10, 10);
 
@@ -178,6 +182,32 @@ class Game {
     this.highScoreContainer.textContent = this.highScore[0].score;
 
     localStorage.setItem('iggyPope-highScore', JSON.stringify(this.highScore));
+
+    this.fillHighScoreTable();
+  }
+
+  fillHighScoreTable() {
+    const historyItems = document.querySelectorAll('.game__history-item');
+
+    this.highScore.forEach((item, index) => {
+      const score = item.score;
+      const date = new Date(item.date);
+
+      historyItems[
+        index
+      ].textContent = `Score: ${score} | Date: ${date.toLocaleDateString(
+        'en-US',
+        {
+          weekday: 'short',
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+        }
+      )}`;
+    });
   }
 }
 
