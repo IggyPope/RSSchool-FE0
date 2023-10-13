@@ -7,7 +7,7 @@ const gameContainer = document.querySelector('.game__container-inner');
 
 newGameBtn.addEventListener('click', () => {
   gameContainer.classList.remove('rotate');
-  game.restart();
+  game.init();
 });
 
 gameHistoryBtn.addEventListener('click', () =>
