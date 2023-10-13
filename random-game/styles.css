@@ -82,6 +82,7 @@ h1 {
   padding: 5px;
   text-wrap: nowrap;
   height: fit-content;
+  cursor: pointer;
 }
 
 .game__container {
