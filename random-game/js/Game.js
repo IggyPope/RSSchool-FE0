@@ -30,7 +30,9 @@ class Game {
   }
 
   init() {
-    clearInterval(this.gameLoop);
+    if (this.gameLoop) {
+      clearInterval(this.gameLoop);
+    }
 
     this.score = 0;
     this.scoreContainer.textContent = this.score;
