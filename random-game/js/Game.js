@@ -17,6 +17,15 @@ class Game {
       '.score__best-score-value'
     );
 
+    this.eatSound = new Audio('./assets/sounds/eat.wav');
+    this.eatSound.volume = 0.5;
+
+    this.gameOverSound = new Audio('./assets/sounds/game-over.wav');
+    this.gameOverSound.volume = 0.5;
+
+    this.startSound = new Audio('./assets/sounds/start.wav');
+    this.startSound.volume = 0.5;
+
     this.init();
   }
 
@@ -29,7 +38,7 @@ class Game {
     this.drawSnake();
   }
 
-  init() {
+  async init() {
     if (this.gameLoop) {
       clearInterval(this.gameLoop);
     }
@@ -58,9 +67,11 @@ class Game {
       this.update.bind(this),
       1000 / (3 * this.speedMultiplier)
     );
+
+    await this.startSound.play();
   }
 
-  checkGameOver() {
+  async checkGameOver() {
     if (
       this.snake.body[0].x < 0 ||
       this.snake.body[0].x > this.gameSize - 1 ||
@@ -76,6 +87,8 @@ class Game {
       const date = new Date();
 
       this.saveHighScore(this.scoreContainer.textContent, date);
+
+      await this.gameOverSound.play();
 
       alert(
         `Game Over!\nYour score is ${
@@ -139,6 +152,8 @@ class Game {
       });
 
       this.food = new Food(this.gameSize, this.tileSize);
+
+      this.eatSound.play();
     }
   }
 
