@@ -23,6 +23,9 @@ class Game {
     this.gameOverSound = new Audio('./assets/sounds/game-over.wav');
     this.gameOverSound.volume = 0.5;
 
+    this.startSound = new Audio('./assets/sounds/start.wav');
+    this.startSound.volume = 0.5;
+
     this.init();
   }
 
@@ -35,7 +38,7 @@ class Game {
     this.drawSnake();
   }
 
-  init() {
+  async init() {
     if (this.gameLoop) {
       clearInterval(this.gameLoop);
     }
@@ -64,6 +67,8 @@ class Game {
       this.update.bind(this),
       1000 / (3 * this.speedMultiplier)
     );
+
+    await this.startSound.play();
   }
 
   async checkGameOver() {
