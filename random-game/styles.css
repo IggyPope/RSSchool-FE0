@@ -89,6 +89,7 @@ h1 {
   width: var(--game-size);
   height: var(--game-size);
   display: flex;
+  flex-shrink: 0;
   background-color: transparent;
   perspective: 1000px;
 }
