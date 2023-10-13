@@ -17,26 +17,7 @@ class Game {
       '.score__best-score-value'
     );
 
-    this.score = 0;
-    this.highScore =
-      JSON.parse(localStorage.getItem('iggyPope-highScore')) || [];
-
-    if (this.highScore.length > 0) {
-      this.highScoreContainer.textContent = this.highScore[0].score;
-    }
-
-    this.fillHighScoreTable();
-
-    this.snake = new Snake(10, 10);
-
-    this.food = new Food(this.gameSize);
-
-    this.speedMultiplier = 1;
-
-    this.gameLoop = setInterval(
-      this.update.bind(this),
-      1000 / (3 * this.speedMultiplier)
-    );
+    this.init();
   }
 
   update() {
@@ -48,8 +29,10 @@ class Game {
     this.drawSnake();
   }
 
-  restart() {
-    clearInterval(this.gameLoop);
+  init() {
+    if (this.gameLoop) {
+      clearInterval(this.gameLoop);
+    }
 
     this.score = 0;
     this.scoreContainer.textContent = this.score;
