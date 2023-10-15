@@ -90,17 +90,17 @@ class Game {
 
       await this.gameOverSound.play();
 
-      alert(
-        `Game Over!\nYour score is ${
-          this.scoreContainer.textContent
-        }\nDate: ${date.toLocaleDateString('en-US', {
-          weekday: 'short',
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: 'numeric',
-          minute: 'numeric',
-        })}`
+      this.ctx.fillStyle = 'rgb(75, 68, 61)';
+      this.ctx.font = 'bold 50px Verdana';
+      this.ctx.fillText(
+        'Game Over!',
+        this.canvas.width / 2 - 200,
+        this.canvas.height / 2 - 30
+      );
+      this.ctx.fillText(
+        `Your score: ${this.score}`,
+        this.canvas.width / 2 - 200,
+        this.canvas.height / 2 + 30
       );
     }
   }
