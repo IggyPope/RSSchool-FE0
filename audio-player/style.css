@@ -1,0 +1,257 @@
+:root {
+  --track-image: url(./assets/images/cover1.jpg);
+
+  --accent-color: #7fffd4;
+
+  --slider-height: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  background-image: var(--track-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: normal;
+
+  transition: background-image 0.5s ease-in-out;
+}
+
+body::before {
+  content: "";
+}
+
+.background-blur {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(15px);
+  z-index: -1;
+}
+
+.player {
+  width: 300px;
+  height: 400px;
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px 0px var(--accent-color);
+
+  z-index: 10;
+}
+
+.player__track-art {
+  width: 100%;
+  height: 250px;
+
+  flex-shrink: 0;
+
+  background-image: var(--track-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: background-image 0.5s ease-in-out;
+}
+
+.player__controls-box {
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  backdrop-filter: brightness(20%);
+}
+
+.player__artist {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+}
+
+.player__track {
+  color: #FFF;
+}
+
+.player__track-progress {
+  position: relative;
+  display: flex;
+}
+
+.player__track-length {
+  position: absolute;
+  top: calc(50%-4px);
+  right: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.player__track-length.player__current-progress {
+  left: 10px;
+}
+
+/***** Slider styles *****/
+input[type="range"] {
+  /* reset default styles */
+  -webkit-appearance: none;
+  appearance: none;
+  /* apply custom styles */
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  /* css progress trick */
+  overflow: hidden;
+}
+
+/***** Slider track *****/
+/***** Chrome, Safari, Opera, and Edge Chromium *****/
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #1f5775;
+  height: var(--slider-height);
+}
+
+/******** Firefox ********/
+input[type="range"]::-moz-range-track {
+  background: #1f5775;
+  height: var(--slider-height);
+}
+
+/***** Slider thumb *****/
+/***** Chrome, Safari, Opera, and Edge Chromium *****/
+input[type="range"]::-webkit-slider-thumb {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  height: 0;
+  width: 0;
+  /* css slider progress trick */
+  box-shadow: -400px 0 0 400px var(--accent-color);
+}
+
+/***** Firefox *****/
+input[type="range"]::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+/***** Slider progress *****/
+/***** Firefox *****/
+input[type="range"]::-moz-range-progress {
+  background-color: var(--accent-color);
+  height: var(--slider-height);
+}
+
+.player__controls-buttons {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.btn {
+  width: 30px;
+  height: 30px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transition: transform 0.1s linear;
+
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    transform: scale(1.1);
+  }
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.player__btn-prev {
+
+  rotate: 180deg;
+  background-image: url(./assets/icons/rewind-forward-circle.svg);
+}
+
+.player__btn-next {
+  background-image: url(./assets/icons/rewind-forward-circle.svg);
+}
+
+.player__btn-play {
+  width: 40px;
+  height: 40px;
+
+  background-image: url(./assets/icons/pause-circle.svg);
+}
+
+.paused {
+  background-image: url(./assets/icons/play-circle.svg);
+}
+
+.player__btn-volume {
+  margin-left: auto;
+  margin-right: 5px;
+  background-image: url(./assets/icons/volume.svg);
+}
+
+.mute {
+  background-image: url(./assets/icons/volume-cross.svg);
+}
+
+footer {
+  width: 100%;
+  padding: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 2rem;
+  font-weight: 700;
+  box-shadow: 0px 0px 15px 0px var(--accent-color);
+
+  background-color: rgba(155, 155, 155, 0.5);
+}
+
+.footer__github {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.footer__rss-link {
+  line-height: 0;
+}
+
+@media (hover: hover) {
+  .footer__github:hover {
+    color: var(--accent-color);
+    transition: 0.5s color linear;
+  }
+}
