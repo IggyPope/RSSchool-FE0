@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description"
+    content="Brooklyn Public Library website created by Igor Vakulchik for the Rolling Scopes School">
+  <meta name="keywords" content="Brooklyn, library, books">
+  <meta name="author" content="Igor Vakulchik">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicons/favicon-16x16.png">
+  <link rel="manifest" href="./site.webmanifest">
+  <link rel="stylesheet" href="./styles/normalize.css">
+  <link rel="stylesheet" href="./styles/style.css">
+  <title>Brooklyn Public Library</title>
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <header class="header">
+      <h1 class="header__logo">Brooklyn Public Library</h1>
+      <nav id="header__nav-menu" class="header__nav-menu menu-area">
+        <ul id="header__nav-list" class="header__nav-list menu-area">
+          <li class="header__nav-item"><a href="#about" class="header__nav-link">About</a></li>
+          <li class="header__nav-item"><a href="#favorites" class="header__nav-link">Favorites</a></li>
+          <li class="header__nav-item"><a href="#coffee-shop" class="header__nav-link">Coffee shop</a></li>
+          <li class="header__nav-item"><a href="#contacts" class="header__nav-link">Contacts</a></li>
+          <li class="header__nav-item"><a href="#library-card" class="header__nav-link">Library Card</a></li>
+        </ul>
+      </nav>
+      <div class="header__profile">
+        <svg class="header__profile-icon profile-btn" width="28" height="28" viewBox="0 0 28 28"
+          xmlns="http://www.w3.org/2000/svg">
+          <g id="icon_profile">
+            <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd"
+              d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" />
+          </g>
+        </svg>
+        <button class="btn-reset header__profile-btn profile-btn profile-btn_disabled"></button>
+
+        <div class="header__profile-menu">
+          <h3 class="profile-menu__heading card-number__display">Profile</h3>
+
+          <button class="profile-menu__link btn-modal-invoke" data-modal="modal-login">Log In</button>
+          <button class="profile-menu__link btn-modal-invoke" data-modal="modal-signup">Register</button>
+
+          <button class="profile-menu__link btn-modal-invoke profile-menu__link_disabled" data-modal="modal-profile">My
+            profile</button>
+          <button class="profile-menu__link profile-menu__link_disabled">Log Out</button>
+        </div>
+      </div>
+      <div id="header__btn-burger" class="header__btn-burger">
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+        <span class="header__burger-line"></span>
+      </div>
+    </header>
+    <main>
+      <section id="welcome" class="welcome-section">
+        <h2 class="welcome__heading">
+          Welcome&nbsp;<br>to the Brooklyn<br>Library
+        </h2>
+      </section>
+
+      <section id="about" class="section about-section">
+
+        <h2 class="section__heading">About</h2>
+
+        <div class="about-section__content">
+
+          <p class="about-section__description">The Brooklyn Library is a free workspace, a large number of books and a
+            cozy coffee shop inside</p>
+
+          <div class="carousel">
+            <div id="carouselButtonPrev" class="carousel__caret" role="button"></div>
+            <div class="carousel__container">
+
+              <div class="carousel-wrapper">
+                <div class="carousel__track">
+                  <img class="carousel__item" src="./assets/images/pictures/about/about_pic_1.jpg"
+                    alt="girl in a library">
+                  <img class="carousel__item" src="./assets/images/pictures/about/about_pic_2.jpg" alt="sculptures">
+                  <img class="carousel__item" src="./assets/images/pictures/about/about_pic_3.jpg"
+                    alt="library interior">
+                  <img class="carousel__item" src="./assets/images/pictures/about/about_pic_4.jpg"
+                    alt="books on a shelf">
+                  <img class="carousel__item" src="./assets/images/pictures/about/about_pic_5.jpg"
+                    alt="ancient building">
+                </div>
+              </div>
+
+              <div class="carousel-pagination">
+                <div class="carousel-pagination__button" role="button"></div>
+
+                <div class="carousel-pagination__button" role="button"></div>
+
+                <div class="carousel-pagination__button" role="button"></div>
+
+                <div class="carousel-pagination__button" role="button"></div>
+
+                <div class="carousel-pagination__button" role="button"></div>
+              </div>
+
+            </div>
+            <div id="carouselButtonNext" class="carousel__caret" role="button"></div>
+          </div>
+
+
+        </div>
+      </section>
+
+      <section id="favorites" class="section favorites-section">
+
+        <h2 class="section__heading">Favorites</h2>
+
+        <div class="favorites__sticky-nav">
+          <h3 class="favorites__sub-heading">Pick favorites of season</h3>
+
+          <form id="seasons-form" class="favorites__seasons-form" method="post">
+            <div class="favorites__radio-button">
+              <input id="selector-winter" type="radio" name="season-radio" class="favorites__season-radio"
+                value="winter">
+              <label for="selector-winter" class="favorites__season-label season-label__winter">Winter</label>
+            </div>
+
+            <div class="favorites__radio-button">
+              <input id="selector-spring" type="radio" name="season-radio" class="favorites__season-radio"
+                value="spring">
+              <label for="selector-spring" class="favorites__season-label season-label__spring">Spring</label>
+            </div>
+
+            <div class="favorites__radio-button">
+              <input id="selector-summer" type="radio" name="season-radio" class="favorites__season-radio"
+                value="summer">
+              <label for="selector-summer" class="favorites__season-label season-label__summer">Summer</label>
+            </div>
+
+            <div class="favorites__radio-button">
+              <input id="selector-autumn" type="radio" name="season-radio" class="favorites__season-radio"
+                value="autumn">
+              <label for="selector-autumn" class="favorites__season-label season-label__autumn">Autumn</label>
+            </div>
+          </form>
+        </div>
+
+        <div class="favorites__container"></div>
+
+      </section>
+
+      <section id="coffee-shop" class="section coffee-section">
+        <h2 class="section__heading">Coffee shop</h2>
+
+        <p class="coffee-section__description">
+          In our library, we have of cozy coffee shop, welcoming in customers with
+          frothy cappuccinos and friendly conversation.
+          You can get a favorite book and read in coffee shop. our barista to cook you best coffee, and also you can try
+          desserts from bakery.
+        </p>
+
+        <div class="coffee-section__menu-container section-container_flex-row">
+          <div class="menu-section menu-beverages">
+            <h3 class="menu-heading">Coffee &amp; Tea</h3>
+
+            <div class="menu__items">
+              <div class="menu-beverages__item">
+                <span class="menu__item-name">Cold brew coffee</span>
+                <div class="menu__divider menu-beverages__divider"></div>
+                <span class="menu__item-price">$3</span>
+              </div>
+
+              <div class="menu-beverages__item">
+                <span class="menu__item-name">French press pot</span>
+                <div class="menu__divider menu-beverages__divider"></div>
+                <span class="menu__item-price">$5</span>
+              </div>
+
+              <div class="menu-beverages__item">
+                <span class="menu__item-name">Espresso</span>
+                <div class="menu__divider menu-beverages__divider"></div>
+                <span class="menu__item-price">$2</span>
+              </div>
+
+              <div class="menu-beverages__item">
+                <span class="menu__item-name">Cappuccino</span>
+                <div class="menu__divider menu-beverages__divider"></div>
+                <span class="menu__item-price">$4</span>
+              </div>
+
+              <div class="menu-beverages__item">
+                <span class="menu__item-name">Hot tea</span>
+                <div class="menu__divider menu-beverages__divider"></div>
+                <span class="menu__item-price">$2</span>
+              </div>
+
+              <div class="menu-beverages__item">
+                <span class="menu__item-name">Cold tea</span>
+                <div class="menu__divider menu-beverages__divider"></div>
+                <span class="menu__item-price">$2</span>
+              </div>
+            </div>
+          </div>
+          <div class="menu-section menu-desserts">
+            <h3 class="menu-heading">Desserts &amp; Cakes</h3>
+
+            <div class="menu__items menu-desserts__items">
+              <div class="menu-desserts__item">
+                <span class="menu__item-name">Forest gateau</span>
+                <div class="menu__divider menu-desserts__divider"></div>
+                <span class="menu__item-price">$16</span>
+              </div>
+
+              <div class="menu-desserts__item">
+                <span class="menu__item-name">Blue moon</span>
+                <div class="menu__divider menu-desserts__divider"></div>
+                <span class="menu__item-price">$16</span>
+              </div>
+
+              <div class="menu-desserts__item">
+                <span class="menu__item-name">Truffle cake</span>
+                <div class="menu__divider menu-desserts__divider"></div>
+                <span class="menu__item-price">$15</span>
+              </div>
+
+              <div class="menu-desserts__item">
+                <span class="menu__item-name">Chocolate cake</span>
+                <div class="menu__divider menu-desserts__divider"></div>
+                <span class="menu__item-price">$18</span>
+              </div>
+
+              <div class="menu-desserts__item">
+                <span class="menu__item-name">Poet’s dream cake</span>
+                <div class="menu__divider menu-desserts__divider"></div>
+                <span class="menu__item-price">$16</span>
+              </div>
+
+              <div class="menu-desserts__item">
+                <span class="menu__item-name">Pineapple cake</span>
+                <div class="menu__divider menu-desserts__divider"></div>
+                <span class="menu__item-price">$14</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section id="contacts" class="section contacts-section">
+        <h2 class="section__heading">Our contacts</h2>
+
+        <div class="contacts__wrapper section-container_flex-row">
+          <div class="contacts__info">
+
+            <h3 class="contacts__sub-heading">For all library inquiries:</h3>
+
+            <div class="contacts__info-section">
+              <p class="contacts__info-line">
+                Please call <a href="tel:6177302370">(617) 730-2370</a>
+              </p>
+
+              <p class="contacts__info-line">
+                For TTY service, please call <a href="tel:6177302370">(617) 730-2370</a>
+              </p>
+
+              <p class="contacts__info-line">
+                Putterham library: <a href="tel:6177302385">(617) 730-2385</a>
+              </p>
+            </div>
+
+            <div class="contacts__info-section">
+              <h3 class="contacts__sub-heading">Senior staff</h3>
+
+              <p class="contacts__info-line">
+                Library Director: <a href="mailto:AmandaHirst@gmail.com"><strong>Amanda Hirst</strong></a>
+              </p>
+            </div>
+          </div>
+
+          <img class="contacts-map" src="./assets/images/pictures/contacts/map.png" alt="map">
+        </div>
+      </section>
+
+      <section id="library-card" class="section dlc-section">
+        <h2 class="section__heading">Digital library cards</h2>
+
+        <div class="dlc__wrapper section-container_flex-row">
+          <div class="dlc__form-container">
+            <h3 class="dlc__find-card-header">Find your Library card</h3>
+            <form class="dlc__find-card-form" name="findCardForm" method="post">
+              <div class="dlc__find-card-fieldset">
+                <h4 class="dlc__form-header">Brooklyn Public Library</h4>
+                <input id="reader-name" class="dlc__field" type="text" name="readerName" placeholder="Reader's name"
+                  required>
+                <input id="card-number" class="dlc__field" type="text" name="cardNumber" placeholder="Card number"
+                  required>
+              </div>
+
+              <button class="btn dlc__btn-find-card" type="submit">Check the card</button>
+
+              <div class="dlc__profile-stats display-none">
+                <div class="dlc__profile-stat-container">
+                  <span class="profile-stat__heading">Visits</span>
+                  <img src="./assets/images/icons/union.svg" alt="profile icon">
+                  <span class="profile-stat__heading visits-count"></span>
+                </div>
+                <div class="dlc__profile-stat-container">
+                  <span class="profile-stat__heading">Bonuses</span>
+                  <img src="./assets/images/icons/star.svg" alt="star icon">
+                  <span class="profile-stat__heading">1240</span>
+                </div>
+                <div class="dlc__profile-stat-container">
+                  <span class="profile-stat__heading">Books</span>
+                  <img src="./assets/images/icons/book.svg" alt="book icon">
+                  <span class="profile-stat__heading books-count"></span>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="dlc__get-card-container">
+            <h3 class="dlc__get-card-header">Get a reader card</h3>
+
+            <p class="dlc__get-card-text">
+              You will be able to see a reader card after
+              logging into account or you can register a new
+              account
+            </p>
+
+            <div class="dlc__auth-controls">
+              <button class="btn btn-auth btn-modal-invoke" data-modal="modal-signup">Sign Up</button>
+              <button class="btn btn-auth btn-modal-invoke" data-modal="modal-login">Log in</button>
+            </div>
+          </div>
+
+          <div class="dlc__get-card-container display-none">
+            <h3 class="dlc__get-card-header">Visit your profile</h3>
+
+            <p class="dlc__get-card-text">
+              With a digital library card you get free access to the Library’s wide array of digital resources including
+              e-books, databases, educational resources, and more.
+            </p>
+
+            <div class="dlc__auth-controls">
+              <button class="btn btn-auth btn-modal-invoke" data-modal="modal-profile">Profile</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="section-container_flex-row">
+        <address class="footer__address footnote__link">
+          <a href="https://goo.gl/maps/SayN6JuycMJvKCu89" target="_blank">
+            286 Cadman Plaza, New York,<br>
+            NY 11238, United States
+          </a>
+        </address>
+        <div class="footer__opening-hours">
+          Mon - Fri<br>
+          08:00 am - 07:00 pm
+        </div>
+      </div>
+      <div class="section-container_flex-row">
+        <ul class="footer__social-icons-list">
+          <li class="social-icons-list__item">
+            <a class="footer__social-link" href="http://twitter.com" target="_blank">
+              <img class="footer__social-icon" src="./assets/images/icons/u_twitter-alt.svg" alt="twitter icon">
+            </a>
+          </li>
+
+          <li class="social-icons-list__item">
+            <a class="footer__social-link" href="http://instagram.com" target="_blank">
+              <img class="footer__social-icon" src="./assets/images/icons/u_instagram.svg" alt="instagram icon">
+            </a>
+          </li>
+
+          <li class="social-icons-list__item">
+            <a class="footer__social-link" href="http://facebook.com" target="_blank">
+              <img class="footer__social-icon" src="./assets/images/icons/u_facebook-f.svg" alt="facebook icon">
+            </a>
+          </li>
+        </ul>
+
+        <div class="footer__opening-hours">
+          Sat - Sun<br>
+          10:00 am - 06:00 pm
+        </div>
+      </div>
+
+      <div class="footer__divider"></div>
+
+      <div class="footer__footnote">
+        <span class="footnote__year">2023</span>
+
+        <a class="footnote__rss footnote__link" href="https://rs.school/js-stage0/" target="_blank">
+          The Rolling Scopes School
+        </a>
+
+        <a class="footnote__github footnote__link" href="https://github.com/IggyPope" target="_blank">
+          IggyPope
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <div class="modals">
+    <div id="modal-overlay" class="modals__overlay"></div>
+    <div id="modal-signup" class="modal modal-auth">
+      <div class="modal-auth__container">
+        <button class="btn-reset btn-close_black modal-auth__btn-close modal__btn-close">
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 17L17 2" stroke-width="3" />
+            <path d="M2 2L17 17" stroke-width="3" />
+          </svg>
+        </button>
+        <form class="modal-auth__form" name="signupForm" method="post">
+          <h3 class="modal-auth__heading">Register</h3>
+
+          <div class="modal__input-group">
+            <label for="register-firstName" class="modal__label">First name</label>
+            <input id="register-firstName" type="text" class="modal__input" name="firstName" required>
+            <label for="register-lastName" class="modal__label">Last name</label>
+            <input id="register-lastName" type="text" class="modal__input" name="lastName" required>
+            <label for="register-email" class="modal__label">E-mail</label>
+            <input id="register-email" type="email" class="modal__input" name="email"
+              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+            <label for="register-password" class="modal__label">Password</label>
+            <input id="register-password" type="password" class="modal__input" name="password" required minlength="8">
+          </div>
+
+          <div class="modal-auth__footer">
+            <button class="btn btn-auth" type="submit">Sign Up</button>
+            <div class="modal-auth__footnote">
+              <span class="modal-auth__footnote-text">Already have an account?</span>
+              <button class="btn-reset modal-auth__footnote-btn btn-modal-invoke"
+                data-modal="modal-login">Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="modal-login" class="modal modal-auth">
+      <div class="modal-auth__container">
+        <button class="btn-reset btn-close_black modal-auth__btn-close modal__btn-close">
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 17L17 2" stroke-width="3" />
+            <path d="M2 2L17 17" stroke-width="3" />
+          </svg>
+        </button>
+        <form class="modal-auth__form" name="loginForm" method="post">
+          <h3 class="modal-auth__heading">Login</h3>
+
+          <div class="modal__input-group">
+            <label for="login-email-card" class="modal__label">E-mail or readers card</label>
+            <input id="login-email-card" type="text" class="modal__input" name="id" required>
+            <label for="login-password" class="modal__label">Password</label>
+            <input id="login-password" type="password" class="modal__input" name="password" required minlength="8">
+          </div>
+
+          <div class="modal-auth__footer">
+            <button class="btn btn-auth" type="submit">Log In</button>
+            <div class="modal-auth__footnote">
+              <span class="modal-auth__footnote-text">Don’t have an account?</span>
+              <button class="btn-reset modal-auth__footnote-btn btn-modal-invoke"
+                data-modal="modal-signup">Register</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="modal-profile" class="modal modal-profile">
+      <div class="modal-profile__container">
+        <button class="btn-reset btn-close_black modal-profile__btn-close modal__btn-close">
+          <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 17L17 2" stroke-width="3" />
+            <path d="M2 2L17 17" stroke-width="3" />
+          </svg>
+        </button>
+        <div class="modal-profile__left-section">
+          <div class="modal-profile__profile-icon"></div>
+          <div class="modal-profile__reader-name"></div>
+        </div>
+        <div class="modal-profile__right-section">
+          <h3 class="modal-profile__heading">My profile</h3>
+
+          <div class="modal-profile__profile-stats">
+            <div class="modal-profile__stat-container">
+              <span class="modal-profile__stat-heading">Visits</span>
+              <img src="./assets/images/icons/union.svg" alt="profile icon">
+              <span class="profile-stat__heading visits-count"></span>
+            </div>
+
+            <div class="modal-profile__stat-container">
+              <span class="modal-profile__stat-heading">Bonuses</span>
+              <img src="./assets/images/icons/star.svg" alt="star icon">
+              <span class="profile-stat__heading">1240</span>
+            </div>
+
+            <div class="modal-profile__stat-container">
+              <span class="modal-profile__stat-heading">Books</span>
+              <img src="./assets/images/icons/book.svg" alt="book icon">
+              <span class="profile-stat__heading books-count"></span>
+            </div>
+          </div>
+
+          <h4 class="rented-books__heading">Rented books</h4>
+
+          <ul class="modal-profile__rented-books"></ul>
+
+          <p class="modal-profile__card-number">
+            Card number <button class="btn-reset card-number__display modal-profile__card-btn btn-tooltip"></button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-buyCard" class="modal modal__buy-card">
+      <button class="btn-reset btn-close_white modal-profile__btn-close modal__btn-close">
+        <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 17L17 2" stroke-width="3" />
+          <path d="M2 2L17 17" stroke-width="3" />
+        </svg>
+      </button>
+
+      <div class="modal-buy-card__header-container">
+        <h3 class="modal-buy-card__heading">Buy a library card</h3>
+      </div>
+      <div class="modal-buy-card__main-container">
+        <form class="modal-buy-card__form" name="buyCardForm" method="post">
+
+          <div class="modal__input-group">
+            <label for="bank-card-number" class="modal__label">Bank card number</label>
+            <input id="bank-card-number" type="text" class="modal__input" name="bankCard" minlength="16" maxlength="19"
+              pattern="[0-9\s]{16,19}" required>
+            <label for="buy-card__exp-month" class="modal__label">Expiration code</label>
+            <div class="exp-code-wrapper">
+              <input id="buy-card__exp-month" type="text" class="modal__input input-w45" name="expMonth" minlength="1"
+                maxlength="2" pattern="[0-9]{2}" required>
+              <input id="buy-card__exp-year" type="text" class="modal__input input-w45" name="expYear" minlength="2"
+                maxlength="2" pattern="[0-9]{2}" required>
+            </div>
+            <label for="buy-card__cvc" class="modal__label">CVC</label>
+            <input id="buy-card__cvc" type="text" class="modal__input input-w45" name="cvc" minlength="3" maxlength="3"
+              pattern="[0-9]{3}" required>
+          </div>
+          <div class="modal__input-group">
+            <label for="buy-card__name" class="modal__label">Cardholder name</label>
+            <input id="buy-card__name" type="text" class="modal__input" name="cardholderName" pattern="[A-z\s]{1,}"
+              required>
+            <label for="buy-card__zip" class="modal__label">Postal code</label>
+            <input id="buy-card__zip" type="text" class="modal__input" name="zip" pattern="[0-9]{1,}" required>
+            <label for="buy-card__city" class="modal__label">City / Town</label>
+            <input id="buy-card__city" type="text" class="modal__input" name="city" pattern="[A-z\s]{1,}" required>
+          </div>
+
+          <div class="modal-buy-card__footer">
+            <button id="buy-card-btn" class="btn btn-auth btn-inactive" type="submit" disabled>Buy</button>
+            <span class="modal-buy-card__price">$ 25.00</span>
+          </div>
+        </form>
+        <div class="modal-buy-card__text">
+          If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital
+          library card right now using this online form. Visitors to New York State can also use this form to apply for
+          a temporary card.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./scripts/index.js"></script>
+</body>
+
+</html>
