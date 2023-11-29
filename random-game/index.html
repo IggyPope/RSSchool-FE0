@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/icons/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./normalize.css">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./js/app.js" defer></script>
+  <title>Snake</title>
+</head>
+
+<body>
+  <div class="main-container">
+    <header class="header">
+      <h1>Snake</h1>
+      <div class="header__scores">
+        <div class="scores__score-container">Score<div class="score__current-score-value">0</div>
+        </div>
+        <div class="scores__score-container">Best<div class="score__best-score-value">0</div>
+        </div>
+      </div>
+    </header>
+    <div class="game__sub-header">
+      <div class="game__description">
+        <div>Control the snake with arrow keys.</div>
+        <div>Eat as much apples as you can before hitting the wall or your own tail.</div>
+      </div>
+      <div class="game__controls">
+        <button id="btn-new-game" class="btn">New game</button>
+        <button id="btn-game-history" class="btn">High score</button>
+      </div>
+    </div>
+    <main class="game__container">
+      <div class="game__container-inner">
+        <canvas id="canvas"></canvas>
+        <div class="game__history">
+          <h2 class="game__history-header">Top 10 games:</h2>
+          <ol class="game__history-list">
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+            <li class="game__history-item"></li>
+          </ol>
+        </div>
+      </div>
+    </main>
+    <footer class="main__footer">
+      <a class="footer__gh-link" href="https://github.com/IggyPope" target="_blank">
+        <img class="footer__icon" src="./assets/icons/github-mark.svg" alt="GitHub">
+      </a>
+      <span class="footer__year">2023</span>
+      <a class="footer__rss-link" href="https://rs.school/js-stage0/" target="_blank">
+        <img class="footer__icon" src="./assets/icons/rs_school_js.svg" alt="Rolling Scopes School">
+      </a>
+    </footer>
+  </div>
+</body>
+
+</html>
